@@ -19,6 +19,11 @@ export GPG_TTY
 export TERM=xterm
 ##################################################################
 HOSTNAME=`hostname`
+# source in any host specific stuff
 if [ -f ${HOME}/.dotfiles/bash/aliases/${HOSTNAME} ]; then
 	.  ${HOME}/.dotfiles/bash/aliases/${HOSTNAME} 
+fi
+# source in any host specific stuff that I don't want on github
+if [ -f ${HOME}/.dotfiles/bash/aliases/${HOSTNAME}.secret ]; then
+	.  ${HOME}/.dotfiles/bash/aliases/${HOSTNAME}.secret
 fi
