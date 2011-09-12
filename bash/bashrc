@@ -1,0 +1,25 @@
+##########################################################
+#	My standard bashrc
+##########################################################
+#set a civilized mode :)
+set -o vi
+##################################################################
+# base prompt
+export PS1="\[\033[1;30m\][\[\033[1;34m\]\u\[\033[37m\]@\[\033[36m\]\H\[\033[1;30m\]:\[\033
+[0;37m\]${SSH_TTY:-o} \[\033[0;32m\]\[\033[1;30m\]] \[\033[1;37m\]\w\[\033[00m\] \n\$ "
+##################################################################
+#aliases I want everywhere
+alias ctc="cd && clear"
+alias eigo="export LANG=C;export LC_ALL=C"
+alias src="echo \"Updating Settings\" && . ~/.bash_profile"
+##################################################################
+# fix some GPG stuff
+GPG_TTY=`tty` 
+export GPG_TTY 
+##################################################################
+export TERM=xterm
+##################################################################
+HOSTNAME=`hostname`
+if [ -f ${HOME}/.dotfiles/bash/aliases/${HOSTNAME} ]; then
+	.  ${HOME}/.dotfiles/bash/aliases/${HOSTNAME} 
+fi

@@ -1,6 +1,5 @@
 " pathogen goes first because lots of other stuff follows "
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+call pathogen#infect() 
 
 :syntax enable
 :set background=dark
@@ -13,7 +12,7 @@ if $TERM == 'screen'
 endif
 
 
-nmap <silent> <c-n> :NERDTreeToggle<CR>
+nmap <silent> <c-n> :NERDTreeToggle<CR> 
 
 " puppet manifests "
 au BufRead,BufNewFile *.pp   setfiletype puppet
@@ -37,8 +36,15 @@ au BufRead,BufNewFile *.py   setfiletype python
 :autocmd FileType python set smartindent
 
 " cucumber files "
-au Bufread,BufNewFile *.feature set filetype=cucumber
+au Bufread,BufNewFile *.feature setfiletype cucumber
 :autocmd FileType cucumber set shiftwidth=2
 :autocmd FileType cucumber set softtabstop=2
 :autocmd FileType cucumber set autoindent
 :autocmd FileType cucumber set smartindent
+
+" nagios/icinga files "
+au Bufread,BufNewFile *.cfg setfiletype icinga
+:autocmd FileType icinga set shiftwidth=2
+:autocmd FileType icinga set softtabstop=2
+:autocmd FileType icinga set autoindent
+:autocmd FileType icinga set smartindent

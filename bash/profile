@@ -1,0 +1,6 @@
+if [ -f ${HOME}/.dotfiles/bash/bashrc ]; then
+        ${HOME}/.dotfiles/bash/bashrc
+else 
+	echo "checkout dotfiles"
+fi
+
