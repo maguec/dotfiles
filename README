@@ -1,10 +1,15 @@
 Installed plugins
-
 #################################
+
 NerdTree => hit Cntrl-N
 
 Fugitive => :G(whatever)
 	:Gwrite = git add current file
 	:Gcommit = commit the current change
 	:Git push origin = push the change
+
+TODO
+#################################
+# figure out vim wiki
+# get a better nagios plugin
 
