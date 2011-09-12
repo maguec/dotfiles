@@ -1,0 +1,21 @@
+set background=dark
+syntax on
+set guifont=Monospace\ 13
+colorscheme solarized
+
+nmap <silent> <c-n> :NERDTreeToggle<CR>
+
+" puppet stuff "
+au BufRead,BufNewFile *.pp   setfiletype puppet
+:autocmd FileType puppet set shiftwidth=2
+:autocmd FileType puppet set softtabstop=2
+:autocmd FileType puppet set autoindent
+:autocmd FileType puppet set smartindent
+
+" ruby syntax "
+au BufRead,BufNewFile *.rb   setfiletype ruby
+:autocmd FileType ruby set shiftwidth=2
+:autocmd FileType ruby set softtabstop=2
+:autocmd FileType ruby set autoindent
+:autocmd FileType ruby set smartindent
+
