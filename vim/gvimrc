@@ -3,6 +3,9 @@ syntax on
 set guifont=Monospace\ 13
 colorscheme solarized
 
+set backupdir=~/tmp/vim//
+set directory=~/tmp/vim//
+
 nmap <silent> <c-n> :NERDTreeToggle<CR>
 
 " puppet stuff "

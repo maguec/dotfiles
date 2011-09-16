@@ -32,3 +32,7 @@ fi
 if [ -f ${HOME}/.dotfiles/bash/aliases/${HOSTNAME}.secret ]; then
 	.  ${HOME}/.dotfiles/bash/aliases/${HOSTNAME}.secret
 fi
+##################################################################
+if ! [ -d ${HOME}/tmp/${USERNAME}-vim ] ; then
+	mkdir -p ${HOME}/tmp/vim
+fi
