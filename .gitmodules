@@ -4,3 +4,12 @@
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/bundle/mru_vim"]
+	path = vim/bundle/mru_vim
+	url = https://github.com/vim-scripts/mru.vim.git
+[submodule "vim/bundle/fuzzy"]
+	path = vim/bundle/fuzzy
+	url = https://github.com/vim-scripts/FuzzyFinder.git
+[submodule "vim/bundle/l9"]
+	path = vim/bundle/l9
+	url = https://github.com/vim-scripts/L9.git
