@@ -64,3 +64,10 @@ au Bufread,BufNewFile *.cfg setfiletype icinga
 :autocmd FileType icinga set softtabstop=2
 :autocmd FileType icinga set autoindent
 :autocmd FileType icinga set smartindent
+
+" tritium scripts "
+au BufRead,BufNewFile *.ts,*.rs set filetype=tritiumscript
+:autocmd FileType tritumscript set shiftwidth=2
+:autocmd FileType tritumscript set softtabstop=2
+:autocmd FileType tritumscript set autoindent
+:autocmd FileType tritumscript set smartindent
