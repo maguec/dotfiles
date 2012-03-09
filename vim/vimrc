@@ -36,6 +36,7 @@ au BufRead,BufNewFile *.pp   setfiletype puppet
 :autocmd FileType puppet set softtabstop=2
 :autocmd FileType puppet set autoindent
 :autocmd FileType puppet set smartindent
+:autocmd FileType puppet map <F9> :w<CR>:!puppet-lint %<CR>
 
 " ruby syntax "
 au BufRead,BufNewFile *.rb   setfiletype ruby
@@ -43,6 +44,7 @@ au BufRead,BufNewFile *.rb   setfiletype ruby
 :autocmd FileType ruby set softtabstop=2
 :autocmd FileType ruby set autoindent
 :autocmd FileType ruby set smartindent
+:autocmd FileType ruby map <F9> :w<CR>:!ruby -c %<CR>
 
 " python syntax "
 au BufRead,BufNewFile *.py   setfiletype python
