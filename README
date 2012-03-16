@@ -13,3 +13,5 @@ TODO
 # figure out vim wiki OR viki/vikitasks
 # get a better nagios plugin
 
+#to pull all of these from another machine
+git submodule update --init
