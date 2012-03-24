@@ -6,6 +6,7 @@ call pathogen#infect()
 :set ruler
 :set nomodeline
 :set t_Co=256
+:set showcmd
 
 if $TERM == 'screen'
   set term=xterm
@@ -37,6 +38,7 @@ au BufRead,BufNewFile *.pp   setfiletype puppet
 :autocmd FileType puppet set autoindent
 :autocmd FileType puppet set smartindent
 :autocmd FileType puppet map <F9> :w<CR>:!puppet-lint --no-80chars-check %<CR>
+:autocmd FileType puppet map <F8> :w<CR>:Tabularize /=><CR>
 
 " ruby syntax "
 au BufRead,BufNewFile *.rb   setfiletype ruby
