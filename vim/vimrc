@@ -1,5 +1,5 @@
-" pathogen goes first because lots of other stuff follows "
-call pathogen#infect() 
+" Vundle and bundles configuration
+source /home/maguec/.dotfiles/vim/bundles.vim
 
 :syntax enable
 :set background=dark
