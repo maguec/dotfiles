@@ -1,7 +1,7 @@
 set background=dark
 syntax on
-set guifont=Monospace\ 13
-colorscheme solarized
+set guifont=Droid\ Sans\ Mono\ 14
+colorscheme vividchalk
 
 set backupdir=~/tmp/vim//
 set directory=~/tmp/vim//

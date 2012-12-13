@@ -1,9 +1,16 @@
 #!/bin/bash
 
+for i in .vim .vimrc .gvimrc .bashrc .bash_profile .muttrc; do
+
+	if [ -f ${HOME}/${i} ] ; then
+		echo "moving ${HOME}/${i} to ${HOME}/${i}.bkup"
+		mv ${HOME}/${i} ${HOME}/${i}.bkup
+	fi
+done
+
 if [ ! -d ${HOME}/.dotfiles ] ; then
 	echo "NO DOTFILES - checking out for you"
 	cd ${HOME} && git checkout git@github.com:maguec/dotfiles.git .dotfiles
-	cd ${HOME}/.dotfiles &&  git submodule update --init
 fi
 
 #setup vim
