@@ -25,3 +25,14 @@ ln -s ${HOME}/.dotfiles/bash/profile ${HOME}/.bash_profile
 #setup mutt
 ln -s ${HOME}/.dotfiles/mutt/mutt ${HOME}/.muttrc
 
+if [ ! -d ${HOME}/.vim/bundle/vundle ]; then
+	echo "Installing vundle"
+	cd ${HOME} &&git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+fi
+
+# L9 is borked on the old version of Centos and that's
+# the only version of redhat I run anywhere
+if [ -f /etc/redhat-release ] ; then
+	rm -rf ${HOME}/.dotfiles/vim/bundle/FuzzyFinder
+	rm -rf ${HOME}/.dotfiles/vim/bundle/L9
+fi
