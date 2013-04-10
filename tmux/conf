@@ -8,8 +8,26 @@ bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
+# resizing Panes
+bind H resize-pane -L
+bind J resize-pane
+bind K resize-pane -U
+bind L resize-pane -R
 
 set -g default-terminal "screen-256color"
+#######################################################
+# Good tips from here
+# https://mutelight.org/practical-tmux
+set -s escape-time 0
+setw -g aggressive-resize on
+
+#click on pane
+setw -g mode-mouse on
+set-option -g mouse-select-pane on
+set-option -g bell-action any
+set-option -g visual-bell off
+
+set -g history-limit 100000
 
 #######################################################
 # Solarized color scheme
@@ -17,6 +35,7 @@ set -g default-terminal "screen-256color"
 set-option -g status-bg colour235 #base02
 set-option -g status-fg colour136 #yellow
 set-option -g status-attr default
+set-window-option -g window-status-current-bg red
 
 # default window title colors
 set-window-option -g window-status-fg colour244
