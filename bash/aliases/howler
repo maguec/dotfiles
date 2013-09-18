@@ -1,0 +1,2 @@
+alias upm="(java -jar /usr/share/upm/upm.jar&)&"
+alias doc="cd ${HOME}/Documents/Unix_Notes"
