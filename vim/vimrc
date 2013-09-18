@@ -15,6 +15,7 @@ endif
 
 nmap <silent> <c-n> :NERDTreeToggle<CR> 
 nmap <silent> <c-o> :FufFile **/<CR>
+nmap <silent> <c-t> :tabnew<CR>
 
 " Turn on spell check for mail "
 :autocmd FileType mail setlocal spell spelllang=en_us
@@ -51,6 +52,10 @@ au BufRead,BufNewFile *.rb   setfiletype ruby
 :autocmd FileType ruby set expandtab
 :autocmd FileType ruby map <F9> :w<CR>:!ruby -c %<CR>
 
+" golang syntax "
+au BufRead,BufNewFile *.go set filetype=go
+:autocmd FileType go map <F9> :w<CR>:!go build %<CR>
+
 " python syntax "
 au BufRead,BufNewFile *.py   setfiletype python
 :autocmd FileType python set shiftwidth=4
@@ -72,9 +77,8 @@ au Bufread,BufNewFile *.cfg setfiletype icinga
 :autocmd FileType icinga set autoindent
 :autocmd FileType icinga set smartindent
 
-" tritium scripts "
-au BufRead,BufNewFile *.ts,*.rs set filetype=tritiumscript
-:autocmd FileType tritumscript set shiftwidth=2
-:autocmd FileType tritumscript set softtabstop=2
-:autocmd FileType tritumscript set autoindent
-:autocmd FileType tritumscript set smartindent
+" erlang files "
+au BufRead,BufNewFile *.erl set filetype=erlang
+
+" puppet manifests "
+au BufRead,BufNewFile *.md   setfiletype markdown
