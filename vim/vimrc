@@ -12,6 +12,9 @@ if $TERM == 'screen'
   set term=xterm
 endif
 
+set backupdir=~/tmp/vim//
+set directory=~/tmp/vim//
+
 
 nmap <silent> <c-n> :NERDTreeToggle<CR> 
 nmap <silent> <c-o> :FufFile **/<CR>
