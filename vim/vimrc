@@ -18,7 +18,7 @@ set directory=~/tmp/vim//
 
 nmap <silent> <c-n> :NERDTreeToggle<CR> 
 nmap <silent> <c-o> :FufFile **/<CR>
-nmap <silent> <c-t> :tabnew<CR>
+nmap <silent> <c-y> :tabnew<CR>
 
 " Turn on spell check for mail "
 :autocmd FileType mail setlocal spell spelllang=en_us
