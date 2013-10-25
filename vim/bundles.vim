@@ -13,6 +13,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'jimenezrick/vimerl'
+Bundle 'msanders/snipmate.vim'
 
 " ...rest of bundles
 
