@@ -85,3 +85,7 @@ au BufRead,BufNewFile *.erl set filetype=erlang
 
 " puppet manifests "
 au BufRead,BufNewFile *.md   setfiletype markdown
+
+" vimwiki stuff "
+let g:vimwiki_list = [{'path': '~/Documents/VimWiki/index.wiki'}]
+
