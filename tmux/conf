@@ -55,7 +55,7 @@ set-window-option -g window-status-current-bg default
 set-option -g pane-border-fg colour235 #base02
 set-option -g pane-active-border-fg colour240 #base01
 
-# message text
+# message text+VimwikiMakeDiaryNote
 set-option -g message-bg colour235 #base02
 set-option -g message-fg colour166 #orange
 
@@ -65,3 +65,9 @@ set-option -g display-panes-colour colour166 #orange
 
 # clock
 set-window-option -g clock-mode-colour colour64 #green
+
+#######################################################
+# bind pre paned information
+bind V source-file ~/.dotfiles/tmux/vimdouble
+bind W new-window -nWiki 'cd ~/Documents/VimWiki && git pull origin master && vim +VimwikiIndex'
+bind D new-window -nDiary'cd ~/Documents/VimWiki && git pull origin master && vim +VimwikiMakeDiaryNote'
