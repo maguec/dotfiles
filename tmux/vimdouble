@@ -1,6 +1,12 @@
-set-option default-path "~/Code"
-selectp -t 0         # Select pane 0
-splitw -v -p 80 'cd ~/Code/ && vim' 	  # Split pane 0 vertically by 50%
-selectp -t 1              # Select pane 1
-splitw -v -p 10           # Split pane 1 horizontally by 25%
-selectp -t 0              # Select pane 0
+####################################################################
+#Starts up VIM in a main window and splits stuff to the right
+# add the following to the tmux conf
+#	bind V source-file ~/.dotfiles/tmux/vimdouble
+####################################################################
+#
+send-keys -t "0" C-z 'vim' Enter	#starup vim in the main pane
+selectp -t 0			 	#Select pane 0
+splitw -h -p 40 			#horizontally split
+selectp -t 1				#select horizontal
+splitw -v -p 25 			#split again vertically
+selectp -t 0 				#back to the vim pane
