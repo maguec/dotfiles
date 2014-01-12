@@ -5,6 +5,8 @@
 set -o vi
 export EDITOR=vi
 ##################################################################
+#	Pull in some standard dotfiles
+source ${HOME}/.dotfiles/bash/git-prompt.sh
 ##################################################################
 #aliases I want everywhere
 alias ctc="cd && clear"
