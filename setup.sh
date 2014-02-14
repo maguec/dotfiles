@@ -25,6 +25,9 @@ ln -s ${HOME}/.dotfiles/bash/profile ${HOME}/.bash_profile
 #setup mutt
 ln -s ${HOME}/.dotfiles/mutt/mutt ${HOME}/.muttrc
 
+#setup tmux
+ln -s ${HOME}/.dotfiles/tmux/conf ${HOME}/.tmux.conf
+
 if [ ! -d ${HOME}/.vim/bundle/vundle ]; then
 	echo "Installing vundle"
 	cd ${HOME} &&git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
