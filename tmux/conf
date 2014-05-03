@@ -28,8 +28,8 @@ set -g mouse-select-pane off
 set -g mouse-select-window off
 
 #
-set-option -g bell-action any
-set-option -g visual-bell off
+set-option -g bell-action none
+set-option -g visual-bell on
 
 set -g history-limit 100000
 
@@ -50,6 +50,10 @@ set-window-option -g window-status-bg default
 set-window-option -g window-status-current-fg colour166 #orange
 set-window-option -g window-status-current-bg default
 #set-window-option -g window-status-current-attr bright
+
+# set window title 
+set -g set-titles on
+set -g set-titles-string "#T"
 
 # pane border
 set-option -g pane-border-fg colour235 #base02
