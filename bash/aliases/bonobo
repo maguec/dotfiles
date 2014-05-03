@@ -1,0 +1,2 @@
+alias doc="cd ${HOME}/Documents/VimWiki"
+alias nix="cd ${HOME}/Documents/VimWiki/tech.wiki/Unix_Notes"
