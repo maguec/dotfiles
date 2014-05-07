@@ -15,6 +15,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'jimenezrick/vimerl'
 Bundle 'msanders/snipmate.vim'
 Bundle 'mattn/calendar-vim'
+Bundle 'plasticboy/vim-markdown'
 Bundle 'vimwiki'
 
 " ...rest of bundles
