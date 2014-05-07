@@ -14,8 +14,9 @@ Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'jimenezrick/vimerl'
 Bundle 'msanders/snipmate.vim'
+Bundle 'rodjek/vim-puppet'
 Bundle 'mattn/calendar-vim'
-Bundle 'plasticboy/vim-markdown'
+Bundle 'scrooloose/syntastic'
 Bundle 'vimwiki'
 
 " ...rest of bundles
