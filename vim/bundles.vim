@@ -17,6 +17,7 @@ Bundle 'msanders/snipmate.vim'
 Bundle 'rodjek/vim-puppet'
 Bundle 'mattn/calendar-vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'benmills/vimux'
 Bundle 'vimwiki'
 
 " ...rest of bundles
