@@ -83,47 +83,47 @@ snippet warning
 #
 # Types
 snippet cron
-	cron{"${1:name}":
+	cron { '${1:name}':
 		command	=> "${2}",
 		user	=> "${3:root}",
 		${4}	=> ${5}
 	}
 snippet exec
-	exec{"${1:name}":
+	exec { '${1:name}':
 		command	=> "${2:$1}",
 		user	=> "${3:root}",
 		${4}	=> ${5}
 	}
 snippet user
-	user{"${1:user}":
+	user { '${1:user}':
 		comment		=> "${2:$1}",
 		ensure		=> present,
 		managehome	=> true,
 		home		=> "${3:/home/$1}"
 	}
 snippet group
-	group{"${1:group}":
+	group { '${1:group}':
 		ensure	=> ${2:present}
 	}
 snippet host
-	host{"${1:hostname}":
+	host { '${1:hostname}':
 		ip	=> ${2:127.0.0.1}
 	}
 snippet mailalias
-	mailalias{"${1:localpart}":
+	mailalias { '${1:localpart}':
 		recipient	=> "${2:recipient}"
 	}
 snippet mount
-	mount{"${1:destination path}":
+	mount { '${1:destination path}':
 		ensure	=> ${2:mounted},
 		device	=> "${3:device name or path}"
 	}
 snippet package
-	package{"${1:package name}":
+	package { '${1:package name}':
 		ensure	=> ${2:present}
 	}
 snippet yumrepo
-	yumrepo{"${1:repo name}":
+	yumrepo { '${1:repo name}':
 		descr	=> "${2:$1}",
 		enabled	=> ${3:1}
 	}
@@ -132,12 +132,12 @@ snippet define
 		${3}
 	}
 snippet service
-	service{"${1:service}":
+	service { '${1:service}':
 		enable		=> ${2:true},
 		ensure		=> ${3:running},
 		hasstatus	=> true,
 	}
 snippet file
-	file{"${1:path}":
+	file { '${1:path}':
 		${2}	=> ${3}
 	}
