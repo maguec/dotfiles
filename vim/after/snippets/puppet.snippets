@@ -54,12 +54,6 @@ snippet defined
 	defined(${1:Resource}["${2:name}"])${3}
 snippet emerg
 	emerg("${1:message}")${2}
-snippet extlookup Simple extlookup 
-	extlookup("${1:variable}")${2}
-snippet extlookup Extlookup with defaults
-	extlookup("${1:variable}", "${2:default}")${3}
-snippet extlookup Extlookup with defaults and custom data file
-	extlookup("${1:variable}", "${2:default}", "${3:data source}")${4}
 snippet fail
 	fail("${1:message}")${2}
 snippet info
@@ -80,6 +74,21 @@ snippet versioncmp
 	versioncmp("${1:version}", "${2:version}")${3}
 snippet warning
 	warning("${1:message}")${2}
+
+# Hiera
+snippet hiera
+	hiera('${1}', false)
+snippet hiera_array
+	hiera_array('${1}', [])
+snippet hiera_hash
+	hiera_array('${1}', {}
+
+# Future parser
+snippet each
+	${1:myvar}.each |${1}| {
+		{$2}
+	}
+
 #
 # Types
 snippet cron
@@ -90,13 +99,13 @@ snippet cron
 	}
 snippet exec
 	exec { '${1:name}':
-		command	=> "${2:$1}",
-		user	=> "${3:root}",
-		${4}	=> ${5}
+		refreshonly => ${2:false},
+		command	    => '${3:$1}',
+		user	    => '${4:root}',
 	}
 snippet user
 	user { '${1:user}':
-		comment		=> "${2:$1}",
+		comment		=> '${2:$1}',
 		ensure		=> present,
 		managehome	=> true,
 		home		=> "${3:/home/$1}"
@@ -120,7 +129,7 @@ snippet mount
 	}
 snippet package
 	package { '${1:package name}':
-		ensure	=> ${2:present}
+		ensure	=> ${2:installed}
 	}
 snippet yumrepo
 	yumrepo { '${1:repo name}':
@@ -139,5 +148,7 @@ snippet service
 	}
 snippet file
 	file { '${1:path}':
-		${2}	=> ${3}
+		ensure	=> ${2:present},
+		owner	=> ${3:root},
+		group	=> ${3:root},
 	}
