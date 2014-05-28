@@ -9,6 +9,8 @@ source ~/.dotfiles/vim/bundles.vim
 :set showcmd
 :let mapleader=","
 
+:set nofoldenable
+
 if $TERM == 'screen'
   set term=xterm
 endif
