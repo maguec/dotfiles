@@ -49,8 +49,8 @@ au BufRead,BufNewFile *.pp   setfiletype puppet
 :autocmd FileType puppet set autoindent
 :autocmd FileType puppet set smartindent
 :autocmd FileType puppet set expandtab
-:autocmd FileType puppet map <c-l> :call VimuxRunCommand("clear; rake")<CR>
-:autocmd FileType puppet map <c-k> :w<CR>:Tabularize /=><CR>
+:autocmd FileType puppet map <leader>r :call VimuxRunCommand("clear; rake")<CR>
+:autocmd FileType puppet map <leader>k :w<CR>:Tabularize /=><CR>
 :autocmd FileType puppet map <leader>l :w<CR>:!puppet-lint %<CR>
 
 " ruby syntax "
@@ -60,11 +60,11 @@ au BufRead,BufNewFile *.rb   setfiletype ruby
 :autocmd FileType ruby set autoindent
 :autocmd FileType ruby set smartindent
 :autocmd FileType ruby set expandtab
-:autocmd FileType ruby map <F9> :w<CR>:!ruby -c %<CR>
+:autocmd FileType ruby map <leader>l :w<CR>:!ruby -c %<CR>
 
 " golang syntax "
 au BufRead,BufNewFile *.go set filetype=go
-:autocmd FileType go map <F9> :w<CR>:!go build %<CR>
+:autocmd FileType go map <leader>l :w<CR>:!go build %<CR>
 
 " python syntax "
 au BufRead,BufNewFile *.py   setfiletype python
@@ -101,7 +101,7 @@ let g:vimwiki_list = [
 			\{'path': '~/Documents/VimWiki/customer.wiki/whistle.wiki'} 
 		\]
 au BufRead,BufNewFile *.wiki set filetype=vimwiki
-:autocmd FileType vimwiki map <F9> :VimwikiMakeDiaryNote<CR>
+:autocmd FileType vimwiki map <leader>d :VimwikiMakeDiaryNote<CR>
 function! ToggleCalendar()
   execute ":Calendar"
   if exists("g:calendar_open")
@@ -115,4 +115,4 @@ function! ToggleCalendar()
     let g:calendar_open = 1
   end
 endfunction
-:autocmd FileType vimwiki map <F8> :call ToggleCalendar()<CR>
+:autocmd FileType vimwiki map <leader>c :call ToggleCalendar()<CR>
