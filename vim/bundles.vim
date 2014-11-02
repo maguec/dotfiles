@@ -19,6 +19,7 @@ Bundle 'mattn/calendar-vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'benmills/vimux'
 Bundle 'vimwiki'
+Bundle 'bling/vim-airline'
 
 " ...rest of bundles
 
