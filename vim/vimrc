@@ -10,7 +10,7 @@ source ~/.dotfiles/vim/bundles.vim
 :let mapleader=","
 
 " bottom bar
-:let g:airline_powerline_fonts=1
+":let g:airline_powerline_fonts=1
 :set laststatus=2
 
 :set nofoldenable
@@ -26,7 +26,7 @@ set directory=~/tmp/vim//
 vmap <D-c> y:call system("pbcopy", getreg("\""))<CR>
 nmap <D-v> :call setreg("\"",system("pbpaste"))<CR>p
 
-nmap <silent> <c-n> :NERDTreeToggle<CR> 
+nmap <silent> <c-n> :NERDTreeToggle<CR>
 nmap <silent> <c-o> :FufFile **/<CR>
 nmap <silent> <c-y> :tabnew<CR>
 
@@ -103,7 +103,7 @@ let g:vimwiki_list = [
 			\{'path': '~/Documents/VimWiki/tech.wiki'},
 			\{'path': '~/Documents/VimWiki/personal.wiki'},
 			\{'path': '~/Documents/VimWiki/customer.wiki/cpf.wiki'},
-			\{'path': '~/Documents/VimWiki/customer.wiki/whistle.wiki'} 
+			\{'path': '~/Documents/VimWiki/customer.wiki/whistle.wiki'}
 		\]
 au BufRead,BufNewFile *.wiki set filetype=vimwiki
 :autocmd FileType vimwiki map <leader>d :VimwikiMakeDiaryNote<CR>
