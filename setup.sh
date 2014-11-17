@@ -27,6 +27,7 @@ ln -s ${HOME}/.dotfiles/mutt/mutt ${HOME}/.muttrc
 
 #setup tmux
 ln -s ${HOME}/.dotfiles/tmux/conf ${HOME}/.tmux.conf
+ln -s ${HOME}/.dotfiles/tmux/teamocil ${HOME}/.teamocil
 
 if [ ! -d ${HOME}/.vim/bundle/vundle ]; then
 	echo "Installing vundle"
