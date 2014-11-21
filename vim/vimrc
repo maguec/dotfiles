@@ -122,3 +122,5 @@ function! ToggleCalendar()
 endfunction
 :autocmd FileType vimwiki map <leader>c :call ToggleCalendar()<CR>
 :autocmd FileType vimwiki map <leader>s :VimwikiSearch /
+:autocmd FileType vimwiki map <leader>dg :VimwikiDiaryGenerateLinks<CR>
+:autocmd FileType vimwiki map <leader>di :VimwikiDiaryIndex<CR>
