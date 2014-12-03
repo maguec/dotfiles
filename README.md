@@ -30,3 +30,8 @@ Snipmate [Screencast](www.youtube.com/watch?v=xV2IsE5OHd4) with Puppet snippets 
 FuzzyFinder [Screencast](www.yourepeat.com/watch/?v=_MYuiqhfrIU)
 
 and more....
+
+Caveat
+======
+
+This sets vi mode (set -o vi) in .bashrc and not everyone likes this as much as I do...
