@@ -1,3 +1,18 @@
+===========
+Installing
+===========
+
+```
+cd
+git clone https://github.com/maguec/dotfiles.git .dotfiles
+cd .dotfiles
+./setup.sh
+cd
+. ~/.bashrc
+vundleup
+```
+
+
 Installed plugins
 #################################
 
