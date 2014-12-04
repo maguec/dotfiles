@@ -8,6 +8,7 @@ source ~/.dotfiles/vim/bundles.vim
 :set t_Co=256
 :set showcmd
 :let mapleader=","
+:set pastetoggle=<leader>p
 
 " bottom bar
 ":let g:airline_powerline_fonts=1
