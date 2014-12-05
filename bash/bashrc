@@ -38,6 +38,10 @@ fi
 if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
         source $HOME/.rvm/scripts/rvm
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/bin # Add RVM to PATH for scripting
+
 ##################################################################
 HOSTNAME=`hostname`
 # source in any host specific stuff
@@ -53,10 +57,9 @@ if ! [ -d ${HOME}/tmp/${USERNAME}-vim ] ; then
 	mkdir -p ${HOME}/tmp/vim
 fi
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-PATH=$PATH:$HOME/bin # Add RVM to PATH for scripting
-
+# Git stuff
 source ${HOME}/.dotfiles/bash/git-completion.bash
+alias gitclean='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d '
 
 #  Customize BASH PS1 prompt to show current GIT repository and branch.
 #  by Mike Stewart - http://MediaDoneRight.com
