@@ -20,6 +20,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'benmills/vimux'
 Bundle 'vimwiki'
 Bundle 'bling/vim-airline'
+Bundle 'ekalinin/Dockerfile.vim'
+Bundle 'saltstack/salt-vim'
 
 " ...rest of bundles
 
