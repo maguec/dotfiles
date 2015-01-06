@@ -10,7 +10,7 @@ source ${HOME}/.dotfiles/bash/git-prompt.sh
 
 ##################################################################
 #Golang stuff
-export GOROOT=${HOME}/go
+export GOROOT=/usr/lib/go/
 export PATH=${GOROOT}/bin:${PATH}
 export GOPATH=${HOME}/Code/go
 ##################################################################
