@@ -1,0 +1,127 @@
+###########################################################################
+# This is sourced from $HOME/.muttrc using 
+# source `FILE=$HOME/.dotfiles/muttrc; if [ ! -s "$FILE" ]; then FILE=/dev/null;fi;echo "$FILE"`
+# The top level has account information and folder hooks such as
+# send-hook        '~t ^cmague@example\.com$'       'my_hdr From: Chris Mague <cmague@example.com>'
+# folder-hook        =INBOX/*                       'my_hdr From: Chris Mague <cmague@example.com>'
+###########################################################################
+# Use VIM
+set editor='/usr/bin/vi'
+#defaults for all folders are threaded w/ mini index of 11 lines "." means all mailboxes
+folder-hook . set sort=threads
+set sort_aux = reverse-date
+
+#set the spell checker
+set ispell=/usr/bin/ispell
+#order of headers when i read mail
+hdr_order Date: To: Subject: From: Organization: Cc: Reply-To: User-Agent: X-Mailer: X-Spam-Status
+ignore *
+unignore Date: To: Subject: From: Organization: Cc: Reply-To: User-Agent: X-Mailer: X-Spam-Status
+
+# Set my list of aliases
+source $HOME/.mutt/aliases
+# set the default alias file
+set alias_file=$HOME/.mutt/aliases
+
+# Save sent messages
+set move=no
+set postpone=ask-yes
+set beep_new
+###########################################################################
+# set up the sidebar, default visible
+set sidebar_width=20
+set sidebar_visible=yes
+
+# color of folders with new mail
+color sidebar_new yellow default
+
+# ctrl-n, ctrl-p to select next, prev folder
+# ctrl-o to open selected folder
+bind index \CP sidebar-prev
+bind index \CN sidebar-next
+bind index \CO sidebar-open
+bind pager \CP sidebar-prev
+bind pager \CN sidebar-next
+bind pager \CO sidebar-open
+bind index      "B"     bounce-message
+
+# I don't need these.  just for documentation purposes.  See below.
+# sidebar-scroll-up
+# sidebar-scroll-down
+
+# b toggles sidebar visibility
+macro index b '<enter-command>toggle sidebar_visible<enter>'
+macro pager b '<enter-command>toggle sidebar_visible<enter>'
+
+###########################################################################
+#--- GNUPG/PGP
+set pgp_decode_command="gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
+set pgp_verify_command="gpg --no-verbose --batch --output - --verify %s %f"
+set pgp_decrypt_command="gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
+set pgp_sign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command="gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_encrypt_only_command="pgpewrap gpg -v --batch --output - --encrypt --textmode --armor --always-trust -- -r %r -- %f"
+set pgp_encrypt_sign_command="pgpewrap gpg --passphrase-fd 0 -v --batch --output - --encrypt --sign %?a?-u %a? --armor --always-trust -- -r %r -- %f"
+set pgp_import_command="gpg --no-verbose --import -v %f"
+set pgp_export_command="gpg --no-verbose --export --armor %r"
+set pgp_verify_key_command="gpg --no-verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command="gpg --no-verbose --batch --with-colons --list-keys %r"
+set pgp_list_secring_command="gpg --no-verbose --batch --with-colons --list-secret-keys %r"
+set pgp_getkeys_command=""
+
+###########################################################################
+#KEY BINDINGS
+bind generic    "#"     tag-entry
+bind generic    <left>  previous-entry
+bind generic    <right> next-entry
+bind index      "C"     copy-message
+bind index   	"c" 	change-folder
+bind pager      "#"     tag-message
+bind pager      <up>     previous-line
+bind pager      <down>   next-line
+bind pager   "<"      top
+bind pager   ">"      bottom
+bind pager   <home>   top
+bind pager   <end>    bottom
+bind pager   "{"      previous-thread
+bind pager   "}"      next-thread
+bind pager   "\Cx\Cf"   change-folder
+bind browser "e"        check-new
+macro   index   G       "!fetchmail -s -f $HOME/.fetchmailrc_cron --ssl <enter>"
+macro index I "<change-folder>imaps://localhost/INBOX<enter>
+macro index .i  "<limit>(~N|~F)<Enter>"  "view new/flag"
+macro index .a  "<limit>~A<Enter>"       "view all"
+
+##########################################################################
+# Spam Assassin
+##########################################################################
+# Add this to your ~/.muttrc to integrate spamassassin and mutt
+# spamassassin classify as spam
+macro index S "|/usr/bin/sa-learn --spam --single<enter>
+# spamassassin classify as ham
+macro index H "|/usr/bin/sa-learn --ham  --no-rebuild --single<enter>
+# rebuild the spamassassin bayes filter db
+macro index R "!/usr/bin/sa-learn --sync<enter>
+
+
+###########################################################################
+# Color settings
+color indicator brightred black
+color status            brightyellow black
+color header    brightwhite black ^Date:
+color header    brightred black ^From:
+color header    brightgreen black ^To:
+color header    brightgreen black ^Reply-To:
+color header    brightgreen black ^Cc:
+color header    brightwhite black ^Subject:
+color hdrdefault green black
+color body      brightred black [\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+
+color body      brightblue black (http|ftp)://[\-\.\,/%~_:?\#a-zA-Z0-9]+
+color body      brightyellow black ^gpg:
+color quoted    cyan black
+color attachment brightmagenta black
+color signature green black
+color markers   brightred black
+color tree      brightgreen black
+# set colors for mail from specific people
+#color index     brightwhite  black '(~t sysops) | (~c sysops)' 
