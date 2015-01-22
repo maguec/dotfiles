@@ -3,7 +3,7 @@ file.managed:
   - user: ${1:root}
   - group: ${2:root}
   - mode: ${3:644}
-  - source: salt://
+  - source: ${4:salt://`pwd|xargs basename`/files/}
 $0
 endsnippet
 
@@ -12,7 +12,7 @@ file.managed:
   - user: ${1:root}
   - group: ${2:root}
   - mode: ${3:644}
-  - source: salt://
+  - source: salt://`pwd|xargs basename`/templates/
   - template: jinja
 $0
 endsnippet
@@ -39,4 +39,23 @@ service:
   - enable: ${2:True}
   - reload: ${3:True}
   $0
+endsnippet
+
+snippet git
+git.latest:
+  - name: ${1:https://github.com/}
+  - target: ${2:/opt}
+  - require:
+      - pkg: git
+$0
+endsnippet
+
+snippet cmd.wait
+cmd.wait:
+  - cwd: ${1}
+  - names:
+    - ${2:make}
+  - watch:
+    - $3
+$0
 endsnippet
