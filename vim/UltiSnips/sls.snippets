@@ -1,0 +1,42 @@
+snippet file
+file.managed:
+  - user: ${1:root}
+  - group: ${2:root}
+  - mode: ${3:644}
+  - source: salt://
+$0
+endsnippet
+
+snippet template
+file.managed:
+  - user: ${1:root}
+  - group: ${2:root}
+  - mode: ${3:644}
+  - source: salt://
+  - template: jinja
+$0
+endsnippet
+
+snippet dir
+file.directory:
+  - user: ${1:root}
+  - group: ${2:root}
+  - mode: ${3:755}
+  - mkdirs: ${4:True}
+$0
+endsnippet 
+
+snippet pkg
+pkg.installed:
+  - names:
+    - ${1:pkg}
+$0
+endsnippet
+
+snippet service
+service:
+  - ${1:running}
+  - enable: ${2:True}
+  - reload: ${3:True}
+  $0
+endsnippet

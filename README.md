@@ -25,7 +25,7 @@ Vim-Puppet [Puppet Settings](https://github.com/rodjek/vim-puppet)
 
 Fugitive [Integrate Git Screencast](http://vimcasts.org/episodes/fugitive-vim---a-complement-to-command-line-git/)
 
-Snipmate [Screencast](http://www.youtube.com/watch?v=xV2IsE5OHd4) with Puppet snippets cribbed from R.I.Pienaar
+UltiSnips [Screencast](http://vimcasts.org/episodes/meet-ultisnips/) with Puppet snippets cribbed from R.I.Pienaar
 
 FuzzyFinder [Screencast](http://www.yourepeat.com/watch/?v=_MYuiqhfrIU)
 

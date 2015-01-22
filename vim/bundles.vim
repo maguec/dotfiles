@@ -13,7 +13,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'jimenezrick/vimerl'
-Bundle 'msanders/snipmate.vim'
 Bundle 'rodjek/vim-puppet'
 Bundle 'mattn/calendar-vim'
 Bundle 'scrooloose/syntastic'
@@ -22,6 +21,8 @@ Bundle 'vimwiki'
 Bundle 'bling/vim-airline'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'saltstack/salt-vim'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
 
 " ...rest of bundles
 

@@ -46,6 +46,12 @@ if &term == "screen" || &term == "xterm"
   set title
 endif
 
+" settings for ultisnips"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+map <leader>u :UltiSnipsEdit<CR>
 
 " puppet manifests "
 au BufRead,BufNewFile *.pp   setfiletype puppet
@@ -66,6 +72,15 @@ au BufRead,BufNewFile *.rb   setfiletype ruby
 :autocmd FileType ruby set smartindent
 :autocmd FileType ruby set expandtab
 :autocmd FileType ruby map <leader>l :w<CR>:!ruby -c %<CR>
+
+
+" saltstack syntax "
+au BufRead,BufNewFile *.sls   setfiletype sls
+:autocmd FileType sls set shiftwidth=2
+:autocmd FileType sls set softtabstop=2
+:autocmd FileType sls set autoindent
+:autocmd FileType sls set smartindent
+:autocmd FileType sls set expandtab
 
 " golang syntax "
 au BufRead,BufNewFile *.go set filetype=go
