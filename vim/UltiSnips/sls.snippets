@@ -12,7 +12,7 @@ file.managed:
   - user: ${1:root}
   - group: ${2:root}
   - mode: ${3:644}
-  - source: salt://`pwd|xargs basename`/templates/
+  - source: ${4:salt://`pwd|xargs basename`/templates/}
   - template: jinja
 $0
 endsnippet
@@ -52,10 +52,64 @@ endsnippet
 
 snippet cmd.wait
 cmd.wait:
-  - cwd: ${1}
+  - cwd: ${1:/tmp}
   - names:
     - ${2:make}
   - watch:
     - $3
+$0
+endsnippet
+
+snippet cmd.run
+cmd.run:
+  - name: $1
+  - cwd: $2
+  - creates: $3
+  - user: ${4:root}
+$0
+endsnippet
+
+snippet link
+file:
+  - symlink
+  - name: $1
+  - target: $2
+$0
+endsnippet
+
+snippet runit_service
+/service/$1:
+  file.directory:
+    - user: root
+    - group: root
+    - mode: 755
+    - require:
+      - sls: runit
+
+/service/$1/log:
+  file.directory:
+    - user: root
+    - group: root
+    - mode: 755
+    - require:
+      - file: /service/$1
+
+/service/$1/log/run:
+  file.managed:
+    - source: salt://${2:`pwd|xargs basename`}/files/$1_runit_log
+    - user: root
+    - group: root
+    - mode: 755
+    - require:
+      - file: /service/$1/log
+
+/service/$1/run:
+  file.managed:
+    - source: salt://${2:`pwd|xargs basename`}/files/$1_runit
+    - user: root
+    - group: root
+    - mode: 755
+    - require:
+      - file: /service/$1
 $0
 endsnippet
