@@ -22,7 +22,6 @@ Bundle 'bling/vim-airline'
 Bundle 'ekalinin/Dockerfile.vim'
 Bundle 'saltstack/salt-vim'
 Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
 
 " ...rest of bundles
 

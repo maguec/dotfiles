@@ -77,6 +77,14 @@ file:
 $0
 endsnippet
 
+snippet pip
+pip.installed:
+  - name: $1
+  - require:
+    - pkg: python.pip
+$0
+endsnippet
+
 snippet runit_service
 /service/$1:
   file.directory:
