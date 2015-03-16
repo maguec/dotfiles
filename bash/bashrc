@@ -61,6 +61,19 @@ fi
 source ${HOME}/.dotfiles/bash/git-completion.bash
 alias gitclean='git branch --merged master | grep -v "\* master" | xargs -n 1 git branch -d '
 
+##################################################################
+# Set the TMUX window title to the host being SSH'd to!!
+ssh() {
+    if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
+            tmux rename-window "$*"
+            command ssh "$@"
+            tmux set-window-option automatic-rename "on" 1>/dev/null
+    else
+            command ssh "$@"
+    fi
+}
+
+
 #  Customize BASH PS1 prompt to show current GIT repository and branch.
 #  by Mike Stewart - http://MediaDoneRight.com
 
