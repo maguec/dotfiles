@@ -4,3 +4,14 @@ class ${1} {
 }
 $0
 endsnippet
+
+snippet file
+file { '${1}':
+  ensure => present,
+  owner  => ${2:root},
+  group  => ${3:root},
+  mode   => '${4:0644}',
+  source => 'puppet:///`pwd|xargs basename`/${5}',
+}
+$0
+endsnippet
