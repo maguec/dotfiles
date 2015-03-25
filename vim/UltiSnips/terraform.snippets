@@ -1,0 +1,40 @@
+snippet ingress
+ingress {
+	to_port     = $1
+	from_port   = $1
+	protocol    = "${2:tcp}"
+	cidr_blocks = [ "${3:10.0.0.0/8}" ]
+} 
+$0
+endsnippet
+
+snippet instance
+resource "aws_instance" "$1" {
+	ami               = "$2"
+	instance_type     = "${3:t2.small}"
+	availability_zone = "${4:us-west-2a}"
+	key_name          = "${5:Default_key}"
+	security_groups   = ["${6:default}"]
+	subnet_id         = "subnet-${7:12345}"
+	tags  = { 
+		"Name"           = "$1"
+		"infra_version"  = "${8:1.0}"
+		"infra_codename" = "${9:wyoming}"
+	}
+	user_data         = "{\"hostname\":\"$1\",\"salt\":{\"master\": \"10.0.1.5\", \"instance_type\": \"${10:app_server}\", \"deployment\": \"ProductionStack\", \"run_env\": \"${11:prod}\",  \"roles\":[\"app_server\"]}}"
+}
+$0
+endsnippet
+
+
+snippet securitygroup
+resource "aws_security_group" "$1" {
+	name        = "$1"
+	description = "$2"
+	vpc_id      = "${3:vpc-7dd44714}"
+
+	# start ingress rules
+
+}
+$0
+endsnippet
