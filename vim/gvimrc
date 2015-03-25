@@ -1,6 +1,6 @@
 set background=dark
 syntax on
-set guifont=Droid\ Sans\ Mono\ 12
+set guifont=Droid\ Sans\ Mono\ 10
 colorscheme molokai
 
 set backupdir=~/tmp/vim//
