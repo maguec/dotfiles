@@ -15,3 +15,33 @@ file { '${1}':
 }
 $0
 endsnippet
+
+snippet download
+exec { '${1}':
+  refreshonly => false,
+  command     => '/usr/bin/wget ${2}',
+  cwd         => '/usr/src',
+  creates     => '/usr/src/${3}'
+}
+$0
+endsnippet
+
+snippet debpkg
+package { '$1':
+  ensure   => installed,
+  provider => dpkg,
+  require  => File['/usr/src/$2'],
+  source   => '/usr/src/$2',
+}
+$0
+endsnippet
+
+snippet service
+service { '$1' :
+  ensure  => running,
+  enable  => true,
+  require => Class['`!p snip.rv = path.split('/')[-3]`::packages'],
+}
+$0
+endsnippet
+
