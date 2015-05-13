@@ -107,6 +107,13 @@ au Bufread,BufNewFile *.cfg setfiletype icinga
 :autocmd FileType icinga set autoindent
 :autocmd FileType icinga set smartindent
 
+" json files "
+au Bufread,BufNewFile *.json setfiletype json
+:autocmd FileType json set shiftwidth=2
+:autocmd FileType json set softtabstop=2
+:autocmd FileType json set autoindent
+:autocmd FileType json set smartindent
+
 " erlang files "
 au BufRead,BufNewFile *.erl set filetype=erlang
 
