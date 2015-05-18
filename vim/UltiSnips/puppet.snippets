@@ -23,6 +23,15 @@ package { '${1}':
 $0
 endsnippet
 
+snippet gem
+package { '${1}':
+  provider => gem,
+  ensure   => installed,
+}
+$0
+endsnippet
+
+
 snippet download
 exec { '${1}':
   refreshonly => false,
