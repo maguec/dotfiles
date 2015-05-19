@@ -82,6 +82,15 @@ au BufRead,BufNewFile *.sls   setfiletype sls
 :autocmd FileType sls set smartindent
 :autocmd FileType sls set expandtab
 
+" terraform syntax "
+au BufRead,BufNewFile *.tf setlocal filetype=terraform
+:autocmd FileType terraform set shiftwidth=2
+:autocmd FileType terraform set softtabstop=2
+:autocmd FileType terraform set autoindent
+:autocmd FileType terraform set smartindent
+:autocmd FileType terraform set expandtab
+
+
 " golang syntax "
 au BufRead,BufNewFile *.go set filetype=go
 :autocmd FileType go map <leader>l :w<CR>:!go build %<CR>
@@ -140,3 +149,8 @@ endfunction
 :autocmd FileType vimwiki map <leader>s :VimwikiSearch /
 :autocmd FileType vimwiki map <leader>dg :VimwikiDiaryGenerateLinks<CR>
 :autocmd FileType vimwiki map <leader>di :VimwikiDiaryIndex<CR>
+
+" Turn off file caching for fuzzy file finder "
+let g:fuf_help_cache_dir = ''
+let g:fuf_tag_cache_dir = ''
+let g:fuf_taggedfile_cache_dir = ''
