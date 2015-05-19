@@ -116,6 +116,13 @@ au Bufread,BufNewFile *.cfg setfiletype icinga
 :autocmd FileType icinga set autoindent
 :autocmd FileType icinga set smartindent
 
+" json files "
+au Bufread,BufNewFile *.json setfiletype json
+:autocmd FileType json set shiftwidth=2
+:autocmd FileType json set softtabstop=2
+:autocmd FileType json set autoindent
+:autocmd FileType json set smartindent
+
 " erlang files "
 au BufRead,BufNewFile *.erl set filetype=erlang
 
@@ -123,15 +130,19 @@ au BufRead,BufNewFile *.erl set filetype=erlang
 au BufRead,BufNewFile *.md   setfiletype markdown
 
 " vimwiki stuff "
-" Run multiple wikis "
-let g:vimwiki_list = [
-			\{'path': '~/Documents/VimWiki/tech.wiki'},
-			\{'path': '~/Documents/VimWiki/personal.wiki'},
-			\{'path': '~/Documents/VimWiki/customer.wiki/cpf.wiki'},
-			\{'path': '~/Documents/VimWiki/customer.wiki/whistle.wiki'}
-		\]
+let iru=$IRU
+
+if iru == "trulia"
+	let g:vimwiki_list = [ {'path': '~/Documents/VimWiki/trulia.wiki'} ]
+endif
+
+if iru == ""
+	let g:vimwiki_list = [ {'path': '~/Documents/VimWiki/tech.wiki'} ]
+endif
+
 au BufRead,BufNewFile *.wiki set filetype=vimwiki
 :autocmd FileType vimwiki map <leader>d :VimwikiMakeDiaryNote<CR>
+
 function! ToggleCalendar()
   execute ":Calendar"
   if exists("g:calendar_open")
