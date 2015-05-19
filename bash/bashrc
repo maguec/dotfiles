@@ -56,8 +56,10 @@ if [ -f ${HOME}/.dotfiles/bash/aliases/${HOSTNAME}.secret ]; then
 	.  ${HOME}/.dotfiles/bash/aliases/${HOSTNAME}.secret
 fi
 # source in any host specific stuff that I don't want on github
-if [ -f ${HOME}/.dotfiles/bash/aliases/${WIFI}.secret ]; then
-	.  ${HOME}/.dotfiles/bash/aliases/${WIFI}.secret
+if [ "X${WIFI}" != "X" ] ; then
+	if [ -f ${HOME}/.dotfiles/bash/aliases/${WIFI}.secret ]; then
+		.  ${HOME}/.dotfiles/bash/aliases/${WIFI}.secret
+	fi
 fi
 ##################################################################
 if ! [ -d ${HOME}/tmp/${USERNAME}-vim ] ; then
