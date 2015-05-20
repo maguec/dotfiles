@@ -44,7 +44,7 @@ PATH=$PATH:$HOME/bin # Add RVM to PATH for scripting
 
 ##################################################################
 # Get stuff based on wireless network connection
-WIFI=`iwlist wlan0 scan |egrep ESSID |awk -F '"' '{print $2}'`
+WIFI=`iwlist wlan0 scan 2>/dev/null |egrep ESSID |awk -F '"' '{print $2}'`
 # or hostname
 HOSTNAME=`hostname`
 # source in any host specific stuff
