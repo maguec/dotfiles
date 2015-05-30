@@ -11,7 +11,7 @@ source ${HOME}/.dotfiles/bash/git-prompt.sh
 ##################################################################
 #Golang stuff
 export GOROOT=/usr/lib/go/
-export PATH=${GOROOT}/bin:${PATH}
+export PATH=${GOROOT}/bin:${HOME}/Code/go/bin:${PATH}
 export GOPATH=${HOME}/Code/go
 ##################################################################
 #aliases I want everywhere
