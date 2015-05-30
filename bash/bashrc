@@ -44,7 +44,7 @@ PATH=$PATH:$HOME/bin # Add RVM to PATH for scripting
 
 ##################################################################
 # Get stuff based on wireless network connection
-WIFI=`iwlist wlan0 scan 2>/dev/null |egrep ESSID |awk -F '"' '{print $2}'`
+
 # or hostname
 HOSTNAME=`hostname`
 # source in any host specific stuff
@@ -56,11 +56,19 @@ if [ -f ${HOME}/.dotfiles/bash/aliases/${HOSTNAME}.secret ]; then
 	.  ${HOME}/.dotfiles/bash/aliases/${HOSTNAME}.secret
 fi
 # source in any host specific stuff that I don't want on github
+if [ -f /sbin/iwlist ]; then
+	WIFI=`iwlist wlan0 scan 2>/dev/null |egrep ESSID |awk -F '"' '{print $2}'|awk  '{print $1}'`
+fi
 if [ "X${WIFI}" != "X" ] ; then
 	if [ -f ${HOME}/.dotfiles/bash/aliases/${WIFI}.secret ]; then
 		.  ${HOME}/.dotfiles/bash/aliases/${WIFI}.secret
 	fi
 fi
+
+if [ -f /tmp/.${USER}.iru ] ; then
+	IRU=`cat /tmp/.${USER}.iru`
+fi
+
 ##################################################################
 if ! [ -d ${HOME}/tmp/${USERNAME}-vim ] ; then
 	mkdir -p ${HOME}/tmp/vim
