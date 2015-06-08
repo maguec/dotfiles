@@ -16,6 +16,17 @@ file { '${1}':
 $0
 endsnippet
 
+snippet dir
+file { '${1}':
+  ensure => directory,
+  owner  => ${2:root},
+  group  => ${3:root},
+  mode   => '${4:0755}',
+}
+$0
+endsnippet
+
+
 snippet package
 package { '${1}':
   ensure => installed,
