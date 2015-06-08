@@ -56,7 +56,7 @@ if [ -f ${HOME}/.dotfiles/bash/aliases/${HOSTNAME}.secret ]; then
 	.  ${HOME}/.dotfiles/bash/aliases/${HOSTNAME}.secret
 fi
 # source in any host specific stuff that I don't want on github
-if [ -f /sbin/iwlist ]; then
+if [ -x /sbin/iwlist ]; then
 	WIFI=`iwlist wlan0 scan 2>/dev/null |egrep ESSID |awk -F '"' '{print $2}'|awk  '{print $1}'`
 fi
 if [ "X${WIFI}" != "X" ] ; then
@@ -82,7 +82,8 @@ alias gitclean='git branch --merged master | grep -v "\* master" | xargs -n 1 gi
 # Set the TMUX window title to the host being SSH'd to!!
 ssh() {
     if [ "$(ps -p $(ps -p $$ -o ppid=) -o comm=)" = "tmux" ]; then
-            tmux rename-window "$*"
+	    short_name=`echo $* |awk -F'.' '{print $1}'`
+	    tmux rename-window "${short_name}"
             command ssh "$@"
             tmux set-window-option automatic-rename "on" 1>/dev/null
     else
