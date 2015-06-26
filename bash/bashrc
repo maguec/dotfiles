@@ -68,6 +68,11 @@ fi
 if [ -f /tmp/.${USER}.iru ] ; then
 	IRU=`cat /tmp/.${USER}.iru`
 fi
+if [ "X${IRU}" != "X" ] ; then
+	if [ -f ${HOME}/.dotfiles/bash/aliases/${IRU}.secret ]; then
+		.  ${HOME}/.dotfiles/bash/aliases/${IRU}.secret
+	fi
+fi
 
 ##################################################################
 if ! [ -d ${HOME}/tmp/${USERNAME}-vim ] ; then

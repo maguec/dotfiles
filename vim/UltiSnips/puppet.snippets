@@ -16,6 +16,18 @@ file { '${1}':
 $0
 endsnippet
 
+snippet template
+file { '${1}':
+  ensure  => present,
+  owner   => ${2:root},
+  group   => ${3:root},
+  mode    => '${4:0644}',
+  content => template('puppet:///`pwd|xargs basename`/${5}'),
+}
+$0
+endsnippet
+
+
 snippet dir
 file { '${1}':
   ensure => directory,
