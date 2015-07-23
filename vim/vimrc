@@ -73,6 +73,13 @@ au BufRead,BufNewFile *.rb   setfiletype ruby
 :autocmd FileType ruby set expandtab
 :autocmd FileType ruby map <leader>l :w<CR>:!ruby -c %<CR>
 
+" logstash syntax "
+:autocmd FileType logstash set shiftwidth=2
+:autocmd FileType logstash set softtabstop=2
+:autocmd FileType logstash set autoindent
+:autocmd FileType logstash set smartindent
+:autocmd FileType logstash set expandtab
+
 
 " saltstack syntax "
 au BufRead,BufNewFile *.sls   setfiletype sls

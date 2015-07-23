@@ -25,6 +25,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'vimyum/viske'
 Bundle 'markcornick/vim-terraform'
 Bundle 'fatih/vim-go'
+Bundle 'robbles/logstash.vim'
 " ...rest of bundles
 
 filetype plugin indent on     " required!

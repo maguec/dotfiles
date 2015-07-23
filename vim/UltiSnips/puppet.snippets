@@ -54,6 +54,13 @@ package { '${1}':
 $0
 endsnippet
 
+snippet exec
+exec { '${1}':
+  refreshonly => true,
+  command     => '${2}',
+}
+$0
+endsnippet
 
 snippet download
 exec { '${1}':
