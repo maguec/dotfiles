@@ -79,6 +79,7 @@ au BufRead,BufNewFile *.rb   setfiletype ruby
 :autocmd FileType logstash set autoindent
 :autocmd FileType logstash set smartindent
 :autocmd FileType logstash set expandtab
+:autocmd FileType logstash map <leader>k :w<CR>:Tabularize /=><CR>
 
 
 " saltstack syntax "
