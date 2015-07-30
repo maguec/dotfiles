@@ -96,6 +96,12 @@ ssh() {
     fi
 }
 
+# Set the tmux title eg add to .rvmrc settitle REPO
+st() {
+	if  [ "${TMUX_PANE}X" != "X" ] ; then
+		printf "\033k$1\033\\"
+	fi
+}
 
 #  Customize BASH PS1 prompt to show current GIT repository and branch.
 #  by Mike Stewart - http://MediaDoneRight.com
