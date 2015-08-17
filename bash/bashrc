@@ -56,8 +56,10 @@ if [ -f ${HOME}/.dotfiles/bash/aliases/${HOSTNAME}.secret ]; then
 	.  ${HOME}/.dotfiles/bash/aliases/${HOSTNAME}.secret
 fi
 # source in any host specific stuff that I don't want on github
-if [ -x /sbin/iwlist ]; then
-	WIFI=`iwlist wlan0 scan 2>/dev/null |egrep ESSID |awk -F '"' '{print $2}'|awk  '{print $1}'`
+if ifconfig wlan0 |grep -q Mask:255 ; then 
+	if [ -x /usr/bin/nmcli ]; then
+		WIFI=`nmcli device show wlan0|grep GENERAL.CONNECTION |awk '{print $NF}'`
+	fi
 fi
 if [ "X${WIFI}" != "X" ] ; then
 	if [ -f ${HOME}/.dotfiles/bash/aliases/${WIFI}.secret ]; then
