@@ -97,6 +97,7 @@ au BufRead,BufNewFile *.tf setlocal filetype=terraform
 :autocmd FileType terraform set autoindent
 :autocmd FileType terraform set smartindent
 :autocmd FileType terraform set expandtab
+:autocmd FileType terraform map <leader>k :w<CR>:Tabularize /=<CR>
 
 
 " golang syntax "
