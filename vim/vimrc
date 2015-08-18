@@ -73,6 +73,14 @@ au BufRead,BufNewFile *.rb   setfiletype ruby
 :autocmd FileType ruby set expandtab
 :autocmd FileType ruby map <leader>l :w<CR>:!ruby -c %<CR>
 
+" yaml syntax "
+au BufRead,BufNewFile *.yaml   setfiletype yaml
+:autocmd FileType yaml set shiftwidth=2
+:autocmd FileType yaml set softtabstop=2
+:autocmd FileType yaml set autoindent
+:autocmd FileType yaml set smartindent
+:autocmd FileType yaml set expandtab
+
 " logstash syntax "
 :autocmd FileType logstash set shiftwidth=2
 :autocmd FileType logstash set softtabstop=2
