@@ -90,3 +90,11 @@ service { '$1' :
 }
 $0
 endsnippet
+
+snippet link
+file { '$1' :
+  ensure => link,
+  target => '$1',
+}
+$0
+endsnippet
