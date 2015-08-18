@@ -56,8 +56,8 @@ if [ -f ${HOME}/.dotfiles/bash/aliases/${HOSTNAME}.secret ]; then
 	.  ${HOME}/.dotfiles/bash/aliases/${HOSTNAME}.secret
 fi
 # source in any host specific stuff that I don't want on github
-if ifconfig wlan0 |grep -q Mask:255 ; then 
-	if [ -x /usr/bin/nmcli ]; then
+if [ -x /usr/bin/nmcli ]; then
+	if /usr/bin/nmcli devices 2>/dev/null |grep -q wlan0  ; then 
 		WIFI=`nmcli device show wlan0|grep GENERAL.CONNECTION |awk '{print $NF}'`
 	fi
 fi
