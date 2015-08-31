@@ -11,7 +11,16 @@ file { '${1}':
   owner  => ${2:root},
   group  => ${3:root},
   mode   => '${4:0644}',
-  source => 'puppet:///`pwd|xargs basename`/${5}',
+  source => 'puppet:///modules/`!p
+try:
+  lines = open(fn, 'r')
+  for line in lines :
+    matchObj = re.match("class\s+(\w+)", line)
+    if matchObj:
+      snip.rv = matchObj.group(1)
+      break
+except:
+  pass`',
 }
 $0
 endsnippet
@@ -22,7 +31,16 @@ file { '${1}':
   owner   => ${2:root},
   group   => ${3:root},
   mode    => '${4:0644}',
-  content => template('puppet:///`pwd|xargs basename`/${5}'),
+  content => template('puppet:///`!p
+try:
+  lines = open(fn, 'r')
+  for line in lines :
+    matchObj = re.match("class\s+(\w+)", line)
+    if matchObj:
+      snip.rv = matchObj.group(1)
+      break
+except:
+  pass`),
 }
 $0
 endsnippet
