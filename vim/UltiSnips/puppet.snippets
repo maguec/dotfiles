@@ -31,7 +31,7 @@ file { '${1}':
   owner   => ${2:root},
   group   => ${3:root},
   mode    => '${4:0644}',
-  content => template('puppet:///`!p
+  content => template('`!p
 try:
   lines = open(fn, 'r')
   for line in lines :
@@ -40,7 +40,7 @@ try:
       snip.rv = matchObj.group(1)
       break
 except:
-  pass`),
+  pass`/ '),
 }
 $0
 endsnippet
