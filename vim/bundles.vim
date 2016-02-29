@@ -26,6 +26,7 @@ Bundle 'vimyum/viske'
 Bundle 'markcornick/vim-terraform'
 Bundle 'fatih/vim-go'
 Bundle 'robbles/logstash.vim'
+Bundle 'elixir-lang/vim-elixir'
 " ...rest of bundles
 
 filetype plugin indent on     " required!
