@@ -104,7 +104,16 @@ snippet service
 service { '$1' :
   ensure  => running,
   enable  => true,
-  require => Class['`!p snip.rv = path.split('/')[-3]`::packages'],
+  require => Class['`!p
+try:
+  lines = open(fn, 'r')
+  for line in lines :
+    matchObj = re.match("class\s+(\w+)", line)
+    if matchObj:
+      snip.rv = matchObj.group(1)
+      break
+except:
+  pass`::packages'],
 }
 $0
 endsnippet
