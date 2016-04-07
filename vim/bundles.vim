@@ -32,6 +32,8 @@ Bundle 'hashivim/vim-vaultproject'
 Bundle 'fatih/vim-go'
 Bundle 'robbles/logstash.vim'
 Bundle 'elixir-lang/vim-elixir'
+Bundle 'mhinz/vim-grepper'
+Bundle 'tpope/vim-repeat'
 " ...rest of bundles
 
 filetype plugin indent on     " required!
