@@ -66,6 +66,7 @@ au BufRead,BufNewFile *.pp   setfiletype puppet
 :autocmd FileType puppet map <leader>r :call VimuxRunCommand("clear; rake")<CR>
 :autocmd FileType puppet map <leader>k :w<CR>:Tabularize /=><CR>
 :autocmd FileType puppet map <leader>l :w<CR>:!puppet-lint %<CR>
+:autocmd FileType puppet nnoremap <leader>G :Grepper -tool grep  -grepprg grep --no-messages --exclude \/spec\/ --include=*.pp --include=*.erb -R<cr>
 
 " ruby syntax "
 au BufRead,BufNewFile *.rb   setfiletype ruby
