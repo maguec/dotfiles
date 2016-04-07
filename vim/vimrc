@@ -10,6 +10,9 @@ source ~/.dotfiles/vim/bundles.vim
 :let mapleader=","
 :set pastetoggle=<leader>p
 
+" For NEOVIM
+:set mouse=h
+
 " bottom bar
 ":let g:airline_powerline_fonts=1
 :set laststatus=2
