@@ -22,6 +22,10 @@ alias vundleup="vim +BundleInstall +qall"
 alias diary="cd ${HOME}/Documents/VimWiki && git pull origin master && vim +VimwikiMakeDiaryNote && git commit -a -m\"diary entry\" && git push origin master "
 alias wiki="cd ${HOME}/Documents/VimWiki && git pull origin master && vim +VimwikiIndex && git commit -a -m\"wiki entry\" && git push origin master "
 alias vw="cd ${HOME}/Documents/VimWiki && vim +VimwikiIndex "
+
+if [ -x /usr/bin/nvim ] ; then
+	alias vim="/usr/bin/nvim"
+fi
 ##################################################################
 # fix some GPG stuff
 GPG_TTY=`tty` 
