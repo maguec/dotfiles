@@ -1,6 +1,6 @@
 set background=dark
 syntax on
-set guifont=Ubuntu\ Mono\ 12
+set guifont=Ubuntu\ Mono\ 14
 colorscheme molokai
 
 let iru=$IRU
@@ -25,7 +25,7 @@ au BufRead,BufNewFile *.rb   setfiletype ruby
 :autocmd FileType ruby set smartindent
 
 function! UseTruliaStyle()
-	set guifont=Ubuntu\ Mono\ 16
+	set guifont=Ubuntu\ Mono\ 12
 endfunction
 
 if iru == "trulia"
