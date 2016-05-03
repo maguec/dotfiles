@@ -8,7 +8,13 @@ source ~/.dotfiles/vim/bundles.vim
 :set t_Co=256
 :set showcmd
 :let mapleader=","
+:set visualbell
+if !has('nvim')
 :set pastetoggle=<leader>p
+else
+noremap <leader>p <NOP>
+let g:airline#extensions#tabline#enabled = 1
+endif
 
 " For NEOVIM
 :set mouse=h
