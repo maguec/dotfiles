@@ -11,8 +11,8 @@ bind K resize-pane -U
 bind L resize-pane -R
 
 #turn off mouse
-set -g mode-mouse off
-set -g mouse-resize-pane off
-set -g mouse-select-pane off
-set -g mouse-select-window off
+set-option -g -q mode-mouse off
+set-option -g -q mouse-resize-pane off
+set-option -g -q mouse-select-pane off
+set-option -g -q mouse-select-window off
 
