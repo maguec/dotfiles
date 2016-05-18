@@ -17,6 +17,7 @@ fi
 ln -s ${HOME}/.dotfiles/vim/vimrc ${HOME}/.vimrc
 ln -s ${HOME}/.dotfiles/vim/gvimrc ${HOME}/.gvimrc
 ln -s ${HOME}/.dotfiles/vim ${HOME}/.vim
+ln -s ${HOME}/.dotfiles/vim ${HOME}/.neovimrc
 
 #setup bash
 ln -s ${HOME}/.dotfiles/bash/bashrc ${HOME}/.bashrc
