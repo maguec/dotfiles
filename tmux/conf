@@ -97,10 +97,10 @@ bind < swap-pane -U       # swap current pane with the previous one
 bind + run 'cut -c3- ~/.tmux.conf | sh -s maximize_pane'
 
 # pane resizing
-bind -r H resize-pane -L 2
-bind -r J resize-pane -D 2
-bind -r K resize-pane -U 2
-bind -r L resize-pane -R 2
+bind -r H resize-pane -L 40
+bind -r J resize-pane -D 40
+bind -r K resize-pane -U 40
+bind -r L resize-pane -R 40
 
 # window navigation
 bind -r C-h previous-window # select previous window

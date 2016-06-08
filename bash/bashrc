@@ -27,6 +27,11 @@ if [ -x /usr/bin/nvim ] ; then
 	alias vim="/usr/bin/nvim"
 fi
 ##################################################################
+#	Add some autocomplete fun
+if gem list |grep -q teamocil ; then
+	complete -W "$(teamocil --list)" teamocil
+fi
+##################################################################
 # fix some GPG stuff
 GPG_TTY=`tty` 
 export GPG_TTY 
