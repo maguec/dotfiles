@@ -1,0 +1,11 @@
+windows:
+  - name: puppet
+    root: ~
+    layout: main-vertical
+    panes:
+      - commands:
+        - ssh puppet
+        - cd puppet/modules
+      - commands:
+        - ssh puppet
+      - bash
