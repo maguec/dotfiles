@@ -15,7 +15,7 @@ export PATH=${GOROOT}/bin:${HOME}/Code/go/bin:${PATH}
 export GOPATH=${HOME}/Code/go
 ##################################################################
 #aliases I want everywhere
-alias ctc="cd && clear"
+alias ctc='cd ${PWD} && clear'
 alias eigo="export LANG=C;export LC_ALL=C"
 alias src="echo \"Updating Settings\" && . ~/.bash_profile"
 alias vundleup="/usr/bin/vim +BundleInstall +qall"
