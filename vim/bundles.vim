@@ -35,6 +35,7 @@ Bundle 'elixir-lang/vim-elixir'
 Bundle 'mhinz/vim-grepper'
 Bundle 'tpope/vim-repeat'
 Bundle 'breard-r/vim-dnsserial'
+Bundle 'majutsushi/tagbar'
 " ...rest of bundles
 
 filetype plugin indent on     " required!
