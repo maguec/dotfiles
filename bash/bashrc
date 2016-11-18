@@ -208,37 +208,41 @@ Host="\h"
 NewLine="\n"
 Jobs="\j"
 
+HostPrompt="$BIWhite$On_Blue$User@$Host$Color_Off"
+CleanGitOpen="$Blue$On_Green$Color_Off$BIWhite$On_Green"
+DirtyGitOpen="$Blue$On_Red$Color_Off$BIWhite$On_Red"
+
 if [ -f ${HOME}/.rvm/bin/rvm-prompt ]; then
 
-export PS1=$IBlack$BICyan\[$BIRed$User$BICyan@$BIBlue$Host$BICyan\]:$Color_Off'$(git branch &>/dev/null;\
+export PS1=$HostPrompt'$(git branch &>/dev/null;\
 	if [ $? -eq 0 ]; then \
 		  echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
 		    if [ "$?" -eq "0" ]; then \
 			        # @4 - Clean repository - nothing to commit
-    echo "'$Green'"$(__git_ps1 " (%s)"); \
+    echo "'$CleanGitOpen'"$(__git_ps1 " (%s)"); \
 	      else \
 		          # @5 - Changes to working tree
-        echo "'$IRed'"$(__git_ps1 " {%s}"); \
-	fi) '$BYellow$PathShort$Color_Off$BICyan' $(~/.rvm/bin/rvm-prompt v p g)$(ls -A *.tf &>/dev/null ; if [ $? -eq 0 ]; then tf=`terraform --version |grep "^Terraform"|cut -d " " -f 2`;echo "@TF-${tf}"; fi) '$Color_Off'\n$ "; \
+        echo "'$DirtyGitOpen'"$(__git_ps1 " {%s}"); \
+	fi) '$Color_Off$BYellow$PathShort$Color_Off$BICyan' $(~/.rvm/bin/rvm-prompt v p g)$(ls -A *.tf &>/dev/null ; if [ $? -eq 0 ]; then tf=`terraform --version |grep "^Terraform"|cut -d " " -f 2`;echo "@TF-${tf}"; fi) '$Color_Off'\n$ "; \
 	  else \
 		    # @2 - Prompt when not in GIT repo
-	echo " '$Yellow$PathShort$Color_Off'\n$ "; \
+	echo " '$Color_Off$Yellow$PathShort$Color_Off'\n$ "; \
 	  fi)'
 else
 
-export PS1=$IBlack$BICyan\[$BIRed$User$BICyan@$BIBlue$Host$BICyan\]:$Color_Off'$(git branch &>/dev/null;\
+export PS1=$HostPrompt'$(git branch &>/dev/null;\
 	if [ $? -eq 0 ]; then \
 		  echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
 		    if [ "$?" -eq "0" ]; then \
 			        # @4 - Clean repository - nothing to commit
-    echo "'$Green'"$(__git_ps1 " (%s)"); \
+    echo "'$CleanGitOpen'"$(__git_ps1 " (%s)"); \
 	      else \
 		          # @5 - Changes to working tree
-        echo "'$IRed'"$(__git_ps1 " {%s}"); \
-		  fi) '$BYellow$PathShort$Color_Off'\n\$ "; 
+        echo "'$DirtyGitOpen'"$(__git_ps1 " {%s}"); \
+		  fi) '$Color_Off$BYellow$PathShort$Color_Off'\n\$ "; 
 	  else \
 		    # @2 - Prompt when not in GIT repo
-	echo " '$Yellow$PathShort' $(ls -A *.tf &>/dev/null ; if [ $? -eq 0 ]; then tf=`terraform --version |grep "^Terraform"|cut -d " " -f 2`;echo "@TF-${tf}"; fi) '$Color_Off'\n\$ "; \
+	echo " '$Color_Off$Yellow$PathShort' $(ls -A *.tf &>/dev/null ; if [ $? -eq 0 ]; then tf=`terraform --version |grep "^Terraform"|cut -d " " -f 2`;echo "@TF-${tf}"; fi) '$Color_Off'\n\$ "; \
 	  fi)'
 fi
 
