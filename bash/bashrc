@@ -210,7 +210,9 @@ Jobs="\j"
 
 HostPrompt="$BIWhite$On_Blue$User@$Host$Color_Off"
 CleanGitOpen="$Blue$On_Green$Color_Off$BIWhite$On_Green"
+CleanGitClose="$Green$Color_Off"
 DirtyGitOpen="$Blue$On_Red$Color_Off$BIWhite$On_Red"
+DirtyGitClose="$Red$Color_Off"
 
 if [ -f ${HOME}/.rvm/bin/rvm-prompt ]; then
 
@@ -219,10 +221,10 @@ export PS1=$HostPrompt'$(git branch &>/dev/null;\
 		  echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
 		    if [ "$?" -eq "0" ]; then \
 			        # @4 - Clean repository - nothing to commit
-    echo "'$CleanGitOpen'"$(__git_ps1 " (%s)"); \
+    echo "'$CleanGitOpen'"$(__git_ps1 " (%s)") "'$CleanGitClose'"; \
 	      else \
 		          # @5 - Changes to working tree
-        echo "'$DirtyGitOpen'"$(__git_ps1 " {%s}"); \
+        echo "'$DirtyGitOpen'"$(__git_ps1 " {%s}") "'$DirtyGitClose'"; \
 	fi) '$Color_Off$BYellow$PathShort$Color_Off$BICyan' $(~/.rvm/bin/rvm-prompt v p g)$(ls -A *.tf &>/dev/null ; if [ $? -eq 0 ]; then tf=`terraform --version |grep "^Terraform"|cut -d " " -f 2`;echo "@TF-${tf}"; fi) '$Color_Off'\n$ "; \
 	  else \
 		    # @2 - Prompt when not in GIT repo
