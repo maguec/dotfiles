@@ -213,7 +213,9 @@ CleanGitOpen="$Blue$On_Green$BIWhite$On_Green"
 CleanGitClose="$Green$On_Blue"
 DirtyGitOpen="$Blue$On_Red$BIWhite$On_Red"
 DirtyGitClose="$Red$On_Blue"
-OnPath="$BYellow$On_Blue$PathShort$Color_Off$Blue"
+OnPath="$BYellow$On_Blue$PathShort$Color_Off$Blue$On_Red"
+RubyOn="$BIWhite$On_Red"
+RubyOff="$Red"
 
 if [ -f ${HOME}/.rvm/bin/rvm-prompt ]; then
 
@@ -226,7 +228,7 @@ export PS1=$HostPrompt'$(git branch &>/dev/null;\
 	      else \
 		          # @5 - Changes to working tree
         echo "'$DirtyGitOpen'"$(__git_ps1 " {%s}") "'$DirtyGitClose'"; \
-	fi) '$OnPath$BICyan' $(~/.rvm/bin/rvm-prompt v p g)$(ls -A *.tf &>/dev/null ; if [ $? -eq 0 ]; then tf=`terraform --version |grep "^Terraform"|cut -d " " -f 2`;echo "@TF-${tf}"; fi) '$Color_Off'\n$ "; \
+	fi) '$OnPath$RubyOn' $(~/.rvm/bin/rvm-prompt v p g)'$RubyOff'$(ls -A *.tf &>/dev/null ; if [ $? -eq 0 ]; then tf=`terraform --version |grep "^Terraform"|cut -d " " -f 2`;echo "@TF-${tf}"; fi) '$Color_Off'\n$ "; \
 	  else \
 		    # @2 - Prompt when not in GIT repo
 	echo "'$OnPath'\n$ "; \
