@@ -1,6 +1,6 @@
 set background=dark
 syntax on
-set guifont=Ubuntu\ Mono\ 14
+set guifont=Hack\ Regular\ 14
 colorscheme molokai
 
 let iru=$IRU
