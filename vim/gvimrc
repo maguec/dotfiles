@@ -1,6 +1,5 @@
 set background=dark
 syntax on
-set guifont=Ubuntu\ Mono\ 12
 colorscheme molokai
 
 "Set up based on an environment variable"
@@ -34,11 +33,27 @@ if iru == "trulia"
 endif
 
 
-" If the Hack Regular font exists - go ahead and use that "
+" Detect the OS and set the Font based on what we have
+if !exists("g:os")
+    if has("win64") || has("win32") || has("win16")
+        let g:os = "Windows"
+    else
+        let g:os = substitute(system('uname'), '\n', '', '')
+    endif
+endif
 
-let font = {"name" : "Hack Regular", "size" : "12"}
+if has("gui_running")
+    if g:os == "Darwin"
+        set guifont=Hack:h16
+    elseif g:os == "Linux"
+      " If the Hack Regular font exists - go ahead and use that "
+      let font = {"name" : "Hack Regular", "size" : "12"}
+      call system("fc-list -q " . font.name)
+      if has("unix") && !v:shell_error
+          let &guifont=join(values(font))
+      else
+          set guifont=Ubuntu\ Mono\ 12
+      end
+    endif
+endif
 
-call system("fc-list -q " . font.name)
-if has("unix") && !v:shell_error
-    let &guifont=join(values(font))
-end
