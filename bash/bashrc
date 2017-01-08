@@ -23,8 +23,8 @@ alias diary="cd ${HOME}/Documents/VimWiki && git pull origin master && vim +Vimw
 alias wiki="cd ${HOME}/Documents/VimWiki && git pull origin master && vim +VimwikiIndex && git commit -a -m\"wiki entry\" && git push origin master "
 alias vw="cd ${HOME}/Documents/VimWiki && vim +VimwikiIndex "
 
-if [ -x /usr/bin/nvim ] ; then
-	alias vim="/usr/bin/nvim"
+if [ -x /usr/bin/nvim ] || [ -x /usr/local/bin/nvim ] ; then
+	alias vim=`which nvim`
 fi
 ##################################################################
 # fix some GPG stuff
