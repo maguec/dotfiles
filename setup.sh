@@ -30,6 +30,9 @@ ln -s ${HOME}/.dotfiles/mutt/mutt ${HOME}/.muttrc
 ln -s ${HOME}/.dotfiles/tmux/conf ${HOME}/.tmux.conf
 ln -s ${HOME}/.dotfiles/tmux/teamocil ${HOME}/.teamocil
 
+#setup ctags
+ln -s ${HOME}/.dotfiles/vim/ctags ${HOME}/.ctags
+
 if [ ! -d ${HOME}/.vim/bundle/vundle ]; then
 	echo "Installing vundle"
 	cd ${HOME} &&git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle

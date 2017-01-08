@@ -9,13 +9,8 @@ export EDITOR=vi
 source ${HOME}/.dotfiles/bash/git-prompt.sh
 
 ##################################################################
-#Golang stuff
-export GOROOT=/usr/lib/go-1.6
-export PATH=${GOROOT}/bin:${HOME}/Code/go/bin:${PATH}
-export GOPATH=${HOME}/Code/go
-##################################################################
 #aliases I want everywhere
-alias ctc="cd && clear"
+alias ctc='cd ${PWD} && clear'
 alias eigo="export LANG=C;export LC_ALL=C"
 alias src="echo \"Updating Settings\" && . ~/.bash_profile"
 alias vundleup="/usr/bin/vim +BundleInstall +qall"
@@ -25,6 +20,11 @@ alias vw="cd ${HOME}/Documents/VimWiki && vim +VimwikiIndex "
 
 if [ -x /usr/bin/nvim ] || [ -x /usr/local/bin/nvim ] ; then
 	alias vim=`which nvim`
+fi
+##################################################################
+#	Add some autocomplete fun
+if gem list |grep -q teamocil ; then
+	complete -W "$(teamocil --list)" teamocil
 fi
 ##################################################################
 # fix some GPG stuff
@@ -43,6 +43,18 @@ if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
 	PATH=$HOME/bin:${PATH}		# Add my bin path
 	PATH=$HOME/.rvm/bin:${PATH} 	# Add RVM to PATH for scripting
 fi
+
+# tfenv 
+if [[ -f ${HOME}/bin/tfenv/bin/tfenv ]] ; then
+	PATH=${HOME}/bin/tfenv/bin:${PATH} 	
+fi
+
+# goenv
+if [[ -d ${HOME}/.goenv/shims ]] ; then
+	PATH=${HOME}/.goenv/shims:${PATH} 	
+fi
+
+
 
 ##################################################################
 # Get stuff based on wireless network connection
@@ -197,37 +209,49 @@ Host="\h"
 NewLine="\n"
 Jobs="\j"
 
+vcs_action_glyph=""
+HostPrompt="$BIWhite$On_Blue$User@$Host"
+CleanGitOpen="$Blue$On_Green${vcs_action_glyph}$BIWhite$On_Green"
+CleanGitClose="$Green$On_Blue${vcs_action_glyph}"
+DirtyGitOpen="$Blue$On_Red${vcs_action_glyph}$BIWhite$On_Red"
+DirtyGitClose="$Red$On_Blue${vcs_action_glyph}"
+OnPath="$BYellow$On_Blue$PathShort"
+OffPath="$Blue$On_Red${vcs_action_glyph}"
+OffPathShort=" $Blue${vcs_action_glyph}$Color_Off"
+RubyOn="$BIWhite$On_Red"
+RubyOff="$Red${vcs_action_glyph}"
+
 if [ -f ${HOME}/.rvm/bin/rvm-prompt ]; then
 
-export PS1=$IBlack$BICyan\[$BIRed$User$BICyan@$BIBlue$Host$BICyan\]:$Color_Off'$(git branch &>/dev/null;\
+export PS1=$HostPrompt'$(git branch &>/dev/null;\
 	if [ $? -eq 0 ]; then \
 		  echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
 		    if [ "$?" -eq "0" ]; then \
 			        # @4 - Clean repository - nothing to commit
-    echo "'$Green'"$(__git_ps1 " (%s)"); \
+    echo "'$CleanGitOpen'"$(__git_ps1 " (%s)") "'$CleanGitClose'"; \
 	      else \
 		          # @5 - Changes to working tree
-        echo "'$IRed'"$(__git_ps1 " {%s}"); \
-		  fi) '$BYellow$PathShort$Color_Off$BICyan' $(~/.rvm/bin/rvm-prompt v p g) '$Color_Off'\n$ "; \
+        echo "'$DirtyGitOpen'"$(__git_ps1 " {%s}") "'$DirtyGitClose'"; \
+	fi) '$OnPath$OffPath$RubyOn' $(~/.rvm/bin/rvm-prompt v p g)$(ls -A *.tf &>/dev/null ; if [ $? -eq 0 ]; then tf=`terraform --version |grep "^Terraform"|cut -d " " -f 2`;echo "/TF-${tf}"; fi) '$RubyOff$Color_Off'\n$ "; \
 	  else \
 		    # @2 - Prompt when not in GIT repo
-	  echo " '$Yellow$PathShort$Color_Off'\n$ "; \
+	echo "'$On_Blue'  '$OnPath$OffPathShort$Color_Off'\n$ "; \
 	  fi)'
 else
 
-export PS1=$IBlack$BICyan\[$BIRed$User$BICyan@$BIBlue$Host$BICyan\]:$Color_Off'$(git branch &>/dev/null;\
+export PS1=$HostPrompt'$(git branch &>/dev/null;\
 	if [ $? -eq 0 ]; then \
 		  echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
 		    if [ "$?" -eq "0" ]; then \
 			        # @4 - Clean repository - nothing to commit
-    echo "'$Green'"$(__git_ps1 " (%s)"); \
+    echo "'$CleanGitOpen'"$(__git_ps1 " (%s)"); \
 	      else \
 		          # @5 - Changes to working tree
-        echo "'$IRed'"$(__git_ps1 " {%s}"); \
-		  fi) '$BYellow$PathShort$Color_Off'\n\$ "; \
+        echo "'$DirtyGitOpen'"$(__git_ps1 " {%s}"); \
+		  fi) '$OnPath$OffPath$Color_Off'\n\$ "; 
 	  else \
 		    # @2 - Prompt when not in GIT repo
-	  echo " '$Yellow$PathShort$Color_Off'\n\$ "; \
+	echo " '$OnPath$OffPath' $(ls -A *.tf &>/dev/null ; if [ $? -eq 0 ]; then tf=`terraform --version |grep "^Terraform"|cut -d " " -f 2`;echo "/TF-${tf}"; fi) '$Color_Off'\n\$ "; \
 	  fi)'
 fi
 

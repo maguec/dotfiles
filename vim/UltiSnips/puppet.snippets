@@ -125,3 +125,12 @@ file { '$1' :
 }
 $0
 endsnippet
+
+snippet cron
+cron { '$1' :
+  command => '$1',
+  hour    => '*',
+  minute  => '*/15',
+}
+$0
+endsnippet

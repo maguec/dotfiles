@@ -26,6 +26,18 @@ endif
 
 :set nofoldenable
 
+let g:tagbar_type_puppet = {
+  \ 'ctagstype': 'puppet',
+  \ 'kinds': [
+    \'c:class',
+    \'s:site',
+    \'n:node',  
+    \'d:definition',
+    \'r:resource',
+    \'f:default'
+  \]
+\}
+
 if $TERM == 'screen'
   set term=xterm
 endif
@@ -40,6 +52,8 @@ nmap <D-v> :call setreg("\"",system("pbpaste"))<CR>p
 nmap <silent> <c-n> :NERDTreeToggle<CR>
 nmap <silent> <c-o> :FufFile **/<CR>
 nmap <silent> <c-y> :tabnew<CR>
+nnoremap <leader>. :CtrlPTag<cr>
+nmap <silent> <Leader>b :TagbarToggle<CR>
 
 nnoremap <leader>G :Grepper -tool git  -grepprg git -C `git rev-parse --show-toplevel` grep -nI<cr>
 
@@ -75,6 +89,7 @@ au BufRead,BufNewFile *.pp   setfiletype puppet
 :autocmd FileType puppet map <leader>r :call VimuxRunCommand("clear; rake")<CR>
 :autocmd FileType puppet map <leader>k :w<CR>:Tabularize /=><CR>
 :autocmd FileType puppet map <leader>l :w<CR>:!puppet-lint %<CR>
+
 
 " ruby syntax "
 au BufRead,BufNewFile *.rb   setfiletype ruby

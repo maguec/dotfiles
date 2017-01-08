@@ -11,13 +11,14 @@ set -s quiet on                           # disable various messages
 
 set-option -g prefix C-a		  # set screen style bind keys
 
+
 # uncomment to force vi-style key bindings
 # emacs is the default unless $EDITOR or $VISUAL contain 'vi'
 #set -g status-keys vi
 #setw -g mode-keys vi
 
-set -g status-utf8 on                     # expect UTF-8
-setw -g utf8 on
+#set -g status-utf8 on                     # expect UTF-8
+#setw -g utf8 on
 
 set -g history-limit 100000                 # boost history
 
@@ -97,10 +98,10 @@ bind < swap-pane -U       # swap current pane with the previous one
 bind + run 'cut -c3- ~/.tmux.conf | sh -s maximize_pane'
 
 # pane resizing
-bind -r H resize-pane -L 2
-bind -r J resize-pane -D 2
-bind -r K resize-pane -U 2
-bind -r L resize-pane -R 2
+bind -r H resize-pane -L 40
+bind -r J resize-pane -D 40
+bind -r K resize-pane -U 40
+bind -r L resize-pane -R 40
 
 # window navigation
 bind -r C-h previous-window # select previous window
@@ -165,14 +166,14 @@ set -g status-bg colour234
 set -g status-fg colour137
 set -g status-attr dim
 set -g status-left ''
-set -g status-right '#[fg=colour233,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour245,bold] %H:%M:%S '
+set -g status-right '#H #[fg=colour233,bg=colour241,bold] %d/%m #[fg=colour233,bg=colour245,bold] %m/%d %H:%M '
 set -g status-right-length 50
 set -g status-left-length 20
 
 setw -g window-status-current-fg colour81
 setw -g window-status-current-bg colour238
 setw -g window-status-current-attr bold
-setw -g window-status-current-format ' #I#[fg=colour250]:#[fg=colour255]#W#[fg=colour50]#F '
+setw -g window-status-current-format ' #I#[fg=cyan]:#[fg=gray]#W#[fg=blue]#F '
 
 setw -g window-status-fg colour138
 setw -g window-status-bg colour235
