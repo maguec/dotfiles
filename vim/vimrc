@@ -54,6 +54,7 @@ nmap <silent> <c-o> :FufFile **/<CR>
 nmap <silent> <c-y> :tabnew<CR>
 nnoremap <leader>. :CtrlPTag<cr>
 nmap <silent> <Leader>b :TagbarToggle<CR>
+nmap <silent> <Leader>f :FufRenewCache<CR>
 
 nnoremap <leader>G :Grepper -tool git  -grepprg git -C `git rev-parse --show-toplevel` grep -nI<cr>
 
