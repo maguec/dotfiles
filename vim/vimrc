@@ -26,6 +26,11 @@ endif
 
 :set nofoldenable
 
+" handle the case where I keep typing :W on this crappy Mac keyboard
+:command WQ wq
+:command Wq wq
+:command W w
+
 let g:tagbar_type_puppet = {
   \ 'ctagstype': 'puppet',
   \ 'kinds': [
