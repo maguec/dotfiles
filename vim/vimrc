@@ -96,6 +96,12 @@ au BufRead,BufNewFile *.pp   setfiletype puppet
 :autocmd FileType puppet map <leader>k :w<CR>:Tabularize /=><CR>
 :autocmd FileType puppet map <leader>l :w<CR>:!puppet-lint %<CR>
 
+" lua syntax "
+:autocmd FileType lua set shiftwidth=2
+:autocmd FileType lua set softtabstop=2
+:autocmd FileType lua set autoindent
+:autocmd FileType lua set smartindent
+:autocmd FileType lua set expandtab
 
 " ruby syntax "
 au BufRead,BufNewFile *.rb   setfiletype ruby
@@ -105,6 +111,9 @@ au BufRead,BufNewFile *.rb   setfiletype ruby
 :autocmd FileType ruby set smartindent
 :autocmd FileType ruby set expandtab
 :autocmd FileType ruby map <leader>l :w<CR>:!ruby -c %<CR>
+
+" ansible syntax"
+:autocmd FileType ansible map <leader>l :w<CR>:!ansible-lint -x ANSIBLE0008 %<CR>
 
 " yaml syntax "
 au BufRead,BufNewFile *.yaml   setfiletype yaml
