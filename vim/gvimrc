@@ -8,22 +8,6 @@ let iru=$IRU
 set backupdir=~/tmp/vim//
 set directory=~/tmp/vim//
 
-nmap <silent> <c-n> :NERDTreeToggle<CR>
-
-" puppet stuff "
-au BufRead,BufNewFile *.pp   setfiletype puppet
-:autocmd FileType puppet set shiftwidth=2
-:autocmd FileType puppet set softtabstop=2
-:autocmd FileType puppet set autoindent
-:autocmd FileType puppet set smartindent
-
-" ruby syntax "
-au BufRead,BufNewFile *.rb   setfiletype ruby
-:autocmd FileType ruby set shiftwidth=2
-:autocmd FileType ruby set softtabstop=2
-:autocmd FileType ruby set autoindent
-:autocmd FileType ruby set smartindent
-
 function! UseTruliaStyle()
 	colorscheme industry
 endfunction
@@ -45,6 +29,8 @@ endif
 if has("gui_running")
     if g:os == "Darwin"
         set guifont=Hack:h16
+	vmap <D-c> y:call system("pbcopy", getreg("\""))<CR>
+	nmap <D-v> :call setreg("\"",system("pbpaste"))<CR>p
     elseif g:os == "Linux"
       " If the Hack Regular font exists - go ahead and use that "
       let font = {"name" : "Hack Regular", "size" : "12"}

@@ -50,9 +50,6 @@ endif
 set backupdir=~/tmp/vim//
 set directory=~/tmp/vim//
 
-" On OSX
-vmap <D-c> y:call system("pbcopy", getreg("\""))<CR>
-nmap <D-v> :call setreg("\"",system("pbpaste"))<CR>p
 
 nmap <silent> <c-n> :NERDTreeToggle<CR>
 nmap <silent> <c-o> :FufFile **/<CR>
