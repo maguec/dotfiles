@@ -2,7 +2,6 @@
 #	My standard bashrc
 ##########################################################
 #set a civilized mode :)
-set -o vi
 export EDITOR=vi
 ##################################################################
 #	Pull in some standard dotfiles
@@ -17,6 +16,7 @@ alias vundleup="/usr/bin/vim +BundleInstall +qall"
 alias diary="cd ${HOME}/Documents/VimWiki && git pull origin master && vim +VimwikiMakeDiaryNote && git commit -a -m\"diary entry\" && git push origin master "
 alias wiki="cd ${HOME}/Documents/VimWiki && git pull origin master && vim +VimwikiIndex && git commit -a -m\"wiki entry\" && git push origin master "
 alias vw="cd ${HOME}/Documents/VimWiki && vim +VimwikiIndex "
+alias k="set -o vi"
 
 if [ -x /usr/bin/nvim ] || [ -x /usr/local/bin/nvim ] ; then
 	alias vim=`which nvim`
