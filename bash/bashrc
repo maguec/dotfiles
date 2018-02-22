@@ -8,6 +8,9 @@ export EDITOR=vi
 #	Pull in some standard dotfiles
 source ${HOME}/.dotfiles/bash/git-prompt.sh
 
+# Unify history
+export PROMPT_COMMAND='history -a'
+
 ##################################################################
 #aliases I want everywhere
 alias ctc='cd ${PWD} && clear'
