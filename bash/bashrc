@@ -38,11 +38,6 @@ else
 	export TERM="xterm"
 fi
 ##################################################################
-#rvm
-if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
-	PATH=$HOME/bin:${PATH}		# Add my bin path
-	PATH=$HOME/.rvm/bin:${PATH} 	# Add RVM to PATH for scripting
-fi
 
 # tfenv 
 if [[ -f ${HOME}/bin/tfenv/bin/tfenv ]] ; then
@@ -52,6 +47,14 @@ fi
 # goenv
 if [[ -d ${HOME}/.goenv/shims ]] ; then
 	PATH=${HOME}/.goenv/shims:${PATH} 	
+fi
+
+# Ensure RVM RUNS LAST
+#rvm
+if [[ -s $HOME/.rvm/scripts/rvm ]] ; then
+	PATH=$HOME/bin:${PATH}		# Add my bin path
+	PATH=$HOME/.rvm/bin:${PATH} 	# Add RVM to PATH for scripting
+	#GEMSET=`basename $GEM_HOME`
 fi
 
 
@@ -209,6 +212,7 @@ Host="\h"
 NewLine="\n"
 Jobs="\j"
 
+#vcs_action_glyph=""
 vcs_action_glyph=""
 HostPrompt="$BIWhite$On_Blue$User@$Host"
 CleanGitOpen="$Blue$On_Green${vcs_action_glyph}$BIWhite$On_Green"

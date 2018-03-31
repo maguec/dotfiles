@@ -67,7 +67,10 @@ set -g visual-activity off
 # available themes:
 #   - powerline (a powerline inspired theme)
 #   - powerline_patched_font (a powerline inspired theme using a patched font)
-tmux_conf_theme=powerline
+#tmux_conf_theme=powerline
+#
+source /usr/share/powerline/bindings/tmux/powerline.conf
+set-option -g default-terminal "screen-256color"
 
 
 # -- navigation ----------------------------------------------------------------

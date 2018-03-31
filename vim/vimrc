@@ -1,6 +1,11 @@
 " Vundle and bundles configuration
 source ~/.dotfiles/vim/bundles.vim
 
+" Powerline
+set rtp+=/usr/lib/python3/dist-packages/powerline/bindings/vim
+set laststatus=2
+
+
 :syntax enable
 :set background=dark
 :set ruler
@@ -13,16 +18,15 @@ if !has('nvim')
 :set pastetoggle=<leader>p
 else
 noremap <leader>p <NOP>
-let g:airline#extensions#tabline#enabled = 1
+
 noremap <leader>t gt
 endif
 
+" Powerline stuffs
+let g:Powerline_symbols = 'fancy'
+
 " For NEOVIM
 :set mouse=h
-
-" bottom bar
-":let g:airline_powerline_fonts=1
-:set laststatus=2
 
 :set nofoldenable
 
@@ -55,8 +59,13 @@ nmap <silent> <c-n> :NERDTreeToggle<CR>
 nmap <silent> <c-o> :FufFile **/<CR>
 nmap <silent> <c-y> :tabnew<CR>
 nnoremap <leader>. :CtrlPTag<cr>
-nmap <silent> <Leader>b :TagbarToggle<CR>
+
+"Tagbar
+nmap <silent> <Leader>t :TagbarToggle<CR>
 nmap <silent> <Leader>f :FufRenewCache<CR>
+
+" Save workspace
+nnoremap <leader>x :ToggleWorkspace<CR>
 
 nnoremap <leader>G :Grepper -tool git  -grepprg git -C `git rev-parse --show-toplevel` grep -nI<cr>
 
@@ -128,15 +137,6 @@ au BufRead,BufNewFile *.yaml   setfiletype yaml
 :autocmd FileType logstash set expandtab
 :autocmd FileType logstash map <leader>k :w<CR>:Tabularize /=><CR>
 
-
-" saltstack syntax "
-au BufRead,BufNewFile *.sls   setfiletype sls
-:autocmd FileType sls set shiftwidth=2
-:autocmd FileType sls set softtabstop=2
-:autocmd FileType sls set autoindent
-:autocmd FileType sls set smartindent
-:autocmd FileType sls set expandtab
-
 " terraform syntax "
 au BufRead,BufNewFile *.tf setlocal filetype=terraform
 :autocmd FileType terraform set shiftwidth=2
@@ -191,19 +191,11 @@ au Bufread,BufNewFile *.json setfiletype json
 " erlang files "
 au BufRead,BufNewFile *.erl set filetype=erlang
 
-" puppet manifests "
+" Markdown Files "
 au BufRead,BufNewFile *.md   setfiletype markdown
 
 " vimwiki stuff "
-let iru=$IRU
-
-if iru == "trulia"
-	let g:vimwiki_list = [ {'path': '~/Documents/VimWiki/trulia.wiki'} ]
-endif
-
-if iru == ""
-	let g:vimwiki_list = [ {'path': '~/Documents/VimWiki/tech.wiki'} ]
-endif
+let g:vimwiki_list = [ {'path': '~/Documents/VimWiki/tech.wiki'} ]
 
 au BufRead,BufNewFile *.wiki set filetype=vimwiki
 :autocmd FileType vimwiki map <leader>d :VimwikiMakeDiaryNote<CR>
