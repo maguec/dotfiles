@@ -42,7 +42,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'breard-r/vim-dnsserial'
 Bundle 'pearofducks/ansible-vim'
 Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-lua-inspect'
+"Bundle 'xolox/vim-lua-inspect'
 " ...rest of bundles
 
 filetype plugin indent on     " required!
