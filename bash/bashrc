@@ -43,8 +43,8 @@ fi
 ##################################################################
 
 # tfenv 
-if [[ -f ${HOME}/bin/tfenv/bin/tfenv ]] ; then
-	PATH=${HOME}/bin/tfenv/bin:${PATH} 	
+if [[ -f ${HOME}/.tfenv/bin/tfenv ]] ; then
+	PATH=${PATH}:${HOME}/.tfenv/bin/
 fi
 
 # goenv
