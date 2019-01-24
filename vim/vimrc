@@ -23,7 +23,7 @@ noremap <leader>t gt
 endif
 
 " Powerline stuffs
-let g:Powerline_symbols = 'fancy'
+" let g:Powerline_symbols = 'fancy'
 
 " For NEOVIM
 :set mouse=h
