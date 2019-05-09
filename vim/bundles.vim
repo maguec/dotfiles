@@ -18,7 +18,6 @@ Bundle 'mattn/calendar-vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'benmills/vimux'
 Bundle 'vimwiki'
-Bundle 'tbabej/taskwiki'
 Bundle 'powerman/vim-plugin-AnsiEsc'
 Bundle 'majutsushi/tagbar'
 Bundle 'farseer90718/vim-taskwarrior'
@@ -42,7 +41,9 @@ Bundle 'tpope/vim-repeat'
 Bundle 'breard-r/vim-dnsserial'
 Bundle 'pearofducks/ansible-vim'
 Bundle 'xolox/vim-misc'
+Bundle 'airblade/vim-gitgutter'
 "Bundle 'xolox/vim-lua-inspect'
+"Bundle 'tbabej/taskwiki'
 " ...rest of bundles
 
 filetype plugin indent on     " required!
