@@ -218,7 +218,7 @@ NewLine="\n"
 Jobs="\j"
 
 #vcs_action_glyph=""
-vcs_action_glyph=""
+vcs_action_glyph=""
 HostPrompt="$BIWhite$On_Blue$User@$Host"
 CleanGitOpen="$Blue$On_Green${vcs_action_glyph}$BIWhite$On_Green"
 CleanGitClose="$Green$On_Blue${vcs_action_glyph}"
