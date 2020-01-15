@@ -32,14 +32,7 @@ if has("gui_running")
 	vmap <D-c> y:call system("pbcopy", getreg("\""))<CR>
 	nmap <D-v> :call setreg("\"",system("pbpaste"))<CR>p
     elseif g:os == "Linux"
-      " If the Hack Regular font exists - go ahead and use that "
-      let font = {"name" : "Hack Regular", "size" : "11"}
-      call system("fc-list -q " . font.name)
-      if has("unix") && !v:shell_error
-          let &guifont=join(values(font))
-      else
-          set guifont=Ubuntu\ Mono\ 12
-      end
+      set guifont=JetBrains\ Mono\ 14,Hack\ 12,Ubuntu\ Mono\ 12
     endif
 endif
 
