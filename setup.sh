@@ -13,6 +13,11 @@ if [ ! -d ${HOME}/.dotfiles ] ; then
 	cd ${HOME} && git checkout git@github.com:maguec/dotfiles.git .dotfiles
 fi
 
+if [ ! -d ${HOME}/.oh-my-bash ] ; then
+	echo "Setup Oh My Bash"
+	git clone git://github.com/ohmybash/oh-my-bash.git ~/.oh-my-bash
+fi
+
 #setup vim
 ln -s ${HOME}/.dotfiles/vim/vimrc ${HOME}/.vimrc
 ln -s ${HOME}/.dotfiles/vim/gvimrc ${HOME}/.gvimrc
