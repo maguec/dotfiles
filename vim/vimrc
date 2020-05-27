@@ -2,8 +2,13 @@
 source ~/.dotfiles/vim/bundles.vim
 
 " Powerline
-"set rtp+=/usr/lib/python3/dist-packages/powerline/bindings/vim
-set laststatus=2
+" if it's setup go ahead and load powerline
+if isdirectory("/usr/lib/python3/dist-packages/powerline/bindings/vim")
+  python3 from powerline.vim import setup as powerline_setup
+  python3 powerline_setup()
+  python3 del powerline_setup
+  set laststatus=2
+endif
 
 
 :syntax enable
@@ -14,6 +19,7 @@ set laststatus=2
 :set showcmd
 :let mapleader=","
 :set visualbell
+
 if !has('nvim')
 :set pastetoggle=<leader>p
 else
