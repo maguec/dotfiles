@@ -2,4 +2,4 @@ alias doc="cd ${HOME}/Documents/VimWiki"
 alias nix="cd ${HOME}/Documents/VimWiki/tech.wiki/Unix_Notes"
 alias gd="google-drive-ocamlfuse ~/mygoogledrive"
 alias rlc="cd ${HOME}/Documents/VimWiki/redislabs.wiki/FieldEng"
-alias rlfe="cd ${HOME}/Code/RedisLabs/FieldEngineering
+alias rlfe="cd ${HOME}/Code/RedisLabs/FieldEngineering"
