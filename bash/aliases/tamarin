@@ -1,3 +1,4 @@
 alias doc="cd ${HOME}/Documents/VimWiki"
 alias nix="cd ${HOME}/Documents/VimWiki/tech.wiki/Unix_Notes"
-alias rlc="cd ${HOME}/Documents/VimWiki/redislabs.wiki/CustomerNotes"
+alias rlc="cd ${HOME}/Documents/VimWiki/redislabs.wiki/FieldEng"
+alias rlfe="cd ${HOME}/Code/RedisLabs/FieldEngineering"
