@@ -204,7 +204,29 @@ au BufRead,BufNewFile *.erl set filetype=erlang
 au BufRead,BufNewFile *.md   setfiletype markdown
 
 " vimwiki stuff "
-let g:vimwiki_list = [ {'path': '~/Documents/VimWiki/tech.wiki'}, {'path': '~/Documents/VimWiki/redislabs.wiki'} ]
+let wiki_tech = {}
+let wiki_tech.path = '~/Documents/VimWiki/tech.wiki/'
+let wiki_tech.path_html = '~/Documents/VimWiki/MainHtml/'
+
+let wiki_google = {}
+let wiki_google.path = '~/Code/Google/VimWiki'
+let wiki_google.path_html = '~/Code/Google/VimWikiHTML/'
+let wiki_google.syntax = 'markdown'
+let wiki_google.ext = '.md'
+
+let wiki_diary = {}
+let wiki_diary.path = '~/Documents/Diary/'
+let wiki_diary.path_html = '/dev/null'
+let wiki_diary.syntax = 'markdown'
+let wiki_diary.ext = '.md'
+
+let g:vimwiki_list = [wiki_tech, wiki_google, wiki_diary]
+
+" only configure md as wiki in the vimwiki paths "
+let g:vimwiki_global_ext = 0
+
+
+
 
 au BufRead,BufNewFile *.wiki set filetype=vimwiki
 :autocmd FileType vimwiki map <leader>d :VimwikiMakeDiaryNote<CR>

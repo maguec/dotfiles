@@ -17,9 +17,14 @@ alias ctc='cd ${PWD} && clear'
 alias eigo="export LANG=C;export LC_ALL=C"
 alias src="echo \"Updating Settings\" && . ~/.bash_profile"
 alias vundleup="/usr/bin/vim +BundleInstall +qall"
+
+# handle the various vimwiki entries
 alias diary="cd ${HOME}/Documents/VimWiki && git pull origin master && vim +VimwikiMakeDiaryNote && git commit -a -m\"diary entry\" && git push origin master "
 alias wiki="cd ${HOME}/Documents/VimWiki && git pull origin master && vim +VimwikiIndex && git commit -a -m\"wiki entry\" && git push origin master "
 alias vw="cd ${HOME}/Documents/VimWiki && vim +VimwikiIndex "
+alias gdiary="cd ~/Code/Google/VimWiki &&  vim  +VimwikiMakeDiaryNote ~/Code/Google/VimWiki/index.md"
+alias gwiki="cd ~/Code/Google/VimWiki &&  vim ~/Code/Google/VimWiki/index.md"
+alias pdiary="cd ~/Documents/Diary/ && vim +VimwikiMakeDiaryNote ~/Documents/Diary/index.md"
 
 ##################################################################
 # fix some GPG stuff
