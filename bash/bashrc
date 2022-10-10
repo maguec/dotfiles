@@ -209,7 +209,7 @@ source $OSH/oh-my-bash.sh
 ##############################################################################
 
 # Set my bin first
-if [[ -f ${HOME}/bin ]] ; then
+if [[ -d ${HOME}/bin ]] ; then
 	PATH=${HOME}/bin:${PATH}
 fi
 
