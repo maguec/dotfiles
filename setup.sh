@@ -35,6 +35,9 @@ ln -s ${HOME}/.dotfiles/mutt/mutt ${HOME}/.muttrc
 ln -s ${HOME}/.dotfiles/tmux/conf ${HOME}/.tmux.conf
 ln -s ${HOME}/.dotfiles/tmux/teamocil ${HOME}/.teamocil
 
+#setup alacritty
+ln -s ${HOME}/.dotfiles/alacritty.yml ${HOME}/.alacritty.yml
+
 #setup ctags
 ln -s ${HOME}/.dotfiles/vim/ctags ${HOME}/.ctags
 
