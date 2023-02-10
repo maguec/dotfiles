@@ -54,6 +54,10 @@ if [[ -d ${HOME}/Code/go/bin ]] ; then
 	PATH=${PATH}:${HOME}/Code/go/bin
 fi
 
+if [[ -d ${HOME}/.local/bin ]] ; then
+	PATH=${PATH}:${HOME}/.local/bin
+fi
+
 # Ensure RVM RUNS LAST
 #rvm
 #if [[ -s ${HOME}/.rvm/scripts/rvm ]] ; then
@@ -213,3 +217,4 @@ if [[ -d ${HOME}/bin ]] ; then
 	PATH=${HOME}/bin:${PATH}
 fi
 
+. "$HOME/.cargo/env"
