@@ -10,7 +10,12 @@ done
 
 if [ ! -d ${HOME}/.dotfiles ] ; then
 	echo "NO DOTFILES - checking out for you"
-	cd ${HOME} && git checkout git@github.com:maguec/dotfiles.git .dotfiles
+	cd ${HOME} && git checkout https://github.com/maguec/dotfiles.git .dotfiles
+fi
+
+if [ ! -d ${HOME}/.oh-my-bash ] ; then
+	echo "Setup Oh My Bash"
+	git clone https://github.com/ohmybash/oh-my-bash.git ~/.oh-my-bash
 fi
 
 #setup vim
@@ -29,6 +34,9 @@ ln -s ${HOME}/.dotfiles/mutt/mutt ${HOME}/.muttrc
 #setup tmux
 ln -s ${HOME}/.dotfiles/tmux/conf ${HOME}/.tmux.conf
 ln -s ${HOME}/.dotfiles/tmux/teamocil ${HOME}/.teamocil
+
+#setup alacritty
+ln -s ${HOME}/.dotfiles/alacritty.yml ${HOME}/.alacritty.yml
 
 #setup ctags
 ln -s ${HOME}/.dotfiles/vim/ctags ${HOME}/.ctags
