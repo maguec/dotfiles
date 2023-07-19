@@ -15,7 +15,7 @@ fi
 
 if [ ! -d ${HOME}/.oh-my-bash ] ; then
 	echo "Setup Oh My Bash"
-	git clone git://github.com/ohmybash/oh-my-bash.git ~/.oh-my-bash
+	git clone https://github.com/ohmybash/oh-my-bash.git ~/.oh-my-bash
 fi
 
 #setup vim
