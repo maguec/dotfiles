@@ -217,4 +217,14 @@ if [[ -d ${HOME}/bin ]] ; then
 	PATH=${HOME}/bin:${PATH}
 fi
 
-. "$HOME/.cargo/env"
+if [ -f ${HOME}/.cargo/env ]; then
+	. "$HOME/.cargo/env"
+fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then 
+	. "${HOME}/google-cloud-sdk/path.bash.inc"
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/chris/google-cloud-sdk/completion.bash.inc' ]; then . '/home/chris/google-cloud-sdk/completion.bash.inc'; fi
