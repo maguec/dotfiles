@@ -18,7 +18,7 @@ if [ ! -d ${HOME}/.oh-my-bash ] ; then
 	git clone https://github.com/ohmybash/oh-my-bash.git ~/.oh-my-bash
 fi
 
-if [ ! -d ${HOME}/.tmux/plugins/tpm] ; then
+if [ ! -d ${HOME}/.tmux/plugins/tpm ] ; then
 	echo "Setup Tmux Plugin Manager"
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
