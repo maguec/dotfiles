@@ -17,6 +17,7 @@ alias ctc='cd ${PWD} && clear'
 alias eigo="export LANG=C;export LC_ALL=C"
 alias src="echo \"Updating Settings\" && . ~/.bash_profile"
 alias vundleup="/usr/bin/vim +BundleInstall +qall"
+alias tmux="TERM=screen-256color-bce tmux"
 
 # handle the various vimwiki entries
 alias diary="cd ${HOME}/Documents/VimWiki && git pull origin master && vim +VimwikiMakeDiaryNote && git commit -a -m\"diary entry\" && git push origin master "
@@ -228,3 +229,8 @@ fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/chris/google-cloud-sdk/completion.bash.inc' ]; then . '/home/chris/google-cloud-sdk/completion.bash.inc'; fi
+
+# Neovim
+if [ -f "/usr/bin/nvim" ]; then 
+	alias vim=/usr/bin/nvim
+fi

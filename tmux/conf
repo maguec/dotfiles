@@ -3,7 +3,7 @@ set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin "janoamaral/tokyo-night-tmux"
 set -g @plugin 'erikw/tmux-powerline'
-set -g default-terminal "tmux-256color"
+
 
 
 
@@ -14,7 +14,10 @@ bind C-a send-prefix -2
 set -q -g status-utf8 on                  # expect UTF-8 (tmux < 2.2)
 setw -q -g utf8 on
 
+set -g default-terminal "screen-256color"
+
 set -g history-limit 10000                 # boost history
+#set-option -g default-command "/bin/bash -l"
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
