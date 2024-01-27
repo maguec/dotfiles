@@ -2,4 +2,5 @@ bash/aliases/*.secret
 vim/.netrwhist
 vim/bundle/*
 vim/view/*
+vim/vim
 bash/aliases/cmague.local
