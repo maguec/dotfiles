@@ -232,5 +232,9 @@ if [ -f '/home/chris/google-cloud-sdk/completion.bash.inc' ]; then . '/home/chri
 
 # Neovim
 if [ -f "/usr/bin/nvim" ]; then 
-	alias vim=/usr/bin/nvim
+	if [ -d ${HOME}/.config/NvChad ]; then
+		alias vim="NVIM_APPNAME=NvChad /usr/bin/nvim"
+	else
+		alias vim="/usr/bin/nvim"
+	fi
 fi
