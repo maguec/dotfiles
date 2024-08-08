@@ -218,6 +218,12 @@ if [[ -d ${HOME}/bin ]] ; then
 	PATH=${HOME}/bin:${PATH}
 fi
 
+# Add TFENV to bin
+if [[ -d ${HOME}/Code/tfenv ]] ; then
+	PATH=${HOME}/Code/tfenv/bin:${PATH}
+fi
+
+
 if [ -f ${HOME}/.cargo/env ]; then
 	. "$HOME/.cargo/env"
 fi
