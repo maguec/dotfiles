@@ -229,18 +229,23 @@ if [ -f ${HOME}/.cargo/env ]; then
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then 
-	. "${HOME}/google-cloud-sdk/path.bash.inc"
+if [ -f "${HOME}/bin/google-cloud-sdk/path.bash.inc" ]; then 
+	. "${HOME}/bin/google-cloud-sdk/path.bash.inc"
+  PATH=${PATH}:${HOME}/bin/google-cloud-sdk/bin
 fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/chris/google-cloud-sdk/completion.bash.inc' ]; then . '/home/chris/google-cloud-sdk/completion.bash.inc'; fi
+# Setup the lua lsg if it exists
+if [ -d "/usr/share/lua-language-server/bin" ]; then 
+  PATH=${PATH}:/usr/share/lua-language-server/bin
+fi
 
 # Neovim
-if [ -f "/usr/bin/nvim" ]; then 
+if [ -f "/opt/nvim-linux64/bin/nvim" ]; then 
+  PATH=${PATH}:/opt/nvim-linux64/bin
+		alias ide="NVIM_APPNAME=NvChad neovide"
 	if [ -d ${HOME}/.config/NvChad ]; then
-		alias vim="NVIM_APPNAME=NvChad /usr/bin/nvim"
+		alias vim="NVIM_APPNAME=NvChad /opt/nvim-linux64/bin/nvim"
 	else
-		alias vim="/usr/bin/nvim"
+		alias vim="/opt/nvim-linux64/bin/nvim"
 	fi
 fi
