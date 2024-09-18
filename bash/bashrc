@@ -229,9 +229,9 @@ if [ -f ${HOME}/.cargo/env ]; then
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f "${HOME}/bin/google-cloud-sdk/path.bash.inc" ]; then 
-	. "${HOME}/bin/google-cloud-sdk/path.bash.inc"
-  PATH=${PATH}:${HOME}/bin/google-cloud-sdk/bin
+if [ -f "${HOME}/google-cloud-sdk/path.bash.inc" ]; then 
+	. "${HOME}/google-cloud-sdk/path.bash.inc"
+  PATH=${PATH}:${HOME}/google-cloud-sdk/bin
 fi
 
 # Setup the lua lsg if it exists
