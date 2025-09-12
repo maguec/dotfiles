@@ -2,4 +2,4 @@ alias doc="cd ${HOME}/Documents/VimWiki"
 alias nix="cd ${HOME}/Documents/VimWiki/tech.wiki/Unix_Notes"
 alias ide="NVIM_APPNAME=NvChad neovide +WorkspacesOpen"
 alias neorg="cd ${HOME}/Documents/neorg && NVIM_APPNAME=NvChad vim index.norg"
-
+alias journal='cd /home/chris/Documents/journal && NVIM_APPNAME=NvChad vim "+Neorg workspace journal" "+Neorg journal today"'
